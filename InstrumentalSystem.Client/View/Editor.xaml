@@ -1,0 +1,234 @@
+﻿<Window x:Class="InstrumentalSystem.Client.View.Editor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InstrumentalSystem.Client.View"
+        xmlns:textboxproperties="clr-namespace:InstrumentalSystem.Client.View.Additional"
+        mc:Ignorable="d"
+        Title="Editor" Height="1000" Width="1400"
+        MinHeight="600" MinWidth="800">
+
+
+    <Window.Resources>
+        <Style x:Key="Local_TextBox" TargetType="{x:Type TextBoxBase}">
+            <Setter Property="Template">
+                 <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                        <Border Name="Border" Background="{TemplateBinding Background}">
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+    </Window.Resources>
+
+    <Grid x:Name="ContentGrid">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!--Внутренности-->
+            <Grid Background="{StaticResource main 5}" Grid.Row="1" Margin="0 5 0 0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="300" MinWidth="200" MaxWidth="450"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="210" MinHeight="200" MaxHeight="450"/>
+                </Grid.RowDefinitions>
+                <GridSplitter Grid.Column="1" Grid.RowSpan="3" Width="2" Style="{StaticResource grid splitter}"/>
+                <GridSplitter Grid.Row="1"  Grid.ColumnSpan="2" Height="2" Style="{StaticResource grid splitter}"/>
+
+                <!--Редактор кода программы-->
+                <DockPanel Grid.Column="0" Grid.Row="0" Margin="5"
+                    Background="{StaticResource black 5}" LastChildFill="True">
+                    <Border Height="25" DockPanel.Dock="Top" Background="{StaticResource main 3}">
+                        <Label Content="Название модуля" Foreground="{StaticResource black 5}" Name="SelectedModuleNameLabel"/>
+                    </Border>
+                    <ScrollViewer>
+                        <DockPanel LastChildFill="True" Margin="0 5 0 0">
+                            <TextBlock Text="{Binding ElementName=CodeEditor, Path=(textboxproperties:AttachedProperties.BindableLineCount)}"
+                                       FontFamily="Courier New" Background="{StaticResource main 5}" Margin="5 0 0 0" FontSize="18" 
+                                       Foreground="{StaticResource black 2}"/>
+                            <TextBox x:Name="CodeEditor"  textboxproperties:AttachedProperties.HasBindableLineCount="True" 
+                                     Margin="10 0 0 0" Foreground="{StaticResource black 1}" TextChanged="CodeEditor_TextChanged" 
+                                     AcceptsTab="True" AcceptsReturn="True" Style="{StaticResource Local_TextBox}" FontFamily="Courier New" FontSize="18" />
+                        </DockPanel>
+                    </ScrollViewer>
+                </DockPanel>
+
+                <!--Консоль-->
+                <DockPanel Grid.Column="0" Grid.Row="2" Margin="5"
+                    Background="{StaticResource black 5}" LastChildFill="True">
+                    <Border Height="25" DockPanel.Dock="Top" Background="{StaticResource main 3}">
+                        <Label Content="Консоль" Foreground="{StaticResource black 5}"/>
+                    </Border>
+                    <ScrollViewer>
+                        <RichTextBox BorderThickness="0" IsReadOnly="True" Margin="10" Name="Console"
+                             Foreground="{StaticResource black 1}" FontFamily="Courier New" FontSize="15"/>
+                    </ScrollViewer>
+                </DockPanel>
+
+                <!--Модули проекта-->
+                <DockPanel Grid.Column="2" Grid.RowSpan="3" Margin="5"
+                    Background="{StaticResource black 5}" LastChildFill="True">
+                    <Border Height="25" DockPanel.Dock="Top" Background="{StaticResource main 3}">
+                        <Label Content="Модули проекта" Foreground="{StaticResource black 5}"/>
+                    </Border>
+                    <TreeView Style="{StaticResource project tv}" Margin="10" Name="ProjectTreeView" SelectedItemChanged="TreeView_SelectedItemChanged"
+                              ItemContainerStyle="{StaticResource project tv item}">
+                        <TreeViewItem ItemContainerStyle="{StaticResource project tv item}">
+                            <TreeViewItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="{StaticResource project icon}" Height="20" Width="20"/>
+                                    <Label Content="Название проекта" Name="ProjectNameLabel"/>
+                                </StackPanel>
+                            </TreeViewItem.Header>
+
+                            <TreeViewItem>
+                                <TreeViewItem.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="{StaticResource master module icon}" Height="20" Width="20"/>
+                                        <Label Content="Упавляющий модуль"/>
+                                    </StackPanel>
+                                </TreeViewItem.Header>
+                            </TreeViewItem>
+
+                            <!--Логические модули-->
+                            <TreeViewItem x:Name="tvLogicModules" ItemContainerStyle="{StaticResource project tv item}">
+                                <TreeViewItem.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="{StaticResource logic module icon}" Height="20" Width="20"/>
+                                        <Label Content="Логические модули"/>
+                                    </StackPanel>
+                                </TreeViewItem.Header>
+                                <TreeViewItem.ItemTemplate>
+                                    <HierarchicalDataTemplate ItemsSource="{Binding Path=Levels}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="{StaticResource module icon}" Height="20" Width="20"/>
+                                            <Label Content="{Binding Name}"/>
+                                        </StackPanel>
+                                    </HierarchicalDataTemplate>
+                                </TreeViewItem.ItemTemplate>
+                            </TreeViewItem>
+
+                            <TreeViewItem>
+                                <TreeViewItem.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="{StaticResource input module icon}" Height="20" Width="20"/>
+                                        <Label Content="Модули входных данных"/>
+                                    </StackPanel>
+                                </TreeViewItem.Header>
+                            </TreeViewItem>
+
+                            <TreeViewItem>
+                                <TreeViewItem.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="{StaticResource output module icon}" Height="20" Width="20"/>
+                                        <Label Content="Модули исходных данных"/>
+                                    </StackPanel>
+                                </TreeViewItem.Header>
+                            </TreeViewItem>
+                        </TreeViewItem>
+                    </TreeView>
+                </DockPanel>
+            </Grid>
+
+            <!--Верхняя панель-->
+            <Border>
+                <Grid HorizontalAlignment="Stretch"  Background="{StaticResource black 5}">
+                    <StackPanel Orientation="Vertical">
+                        <Menu Style="{StaticResource menu bar}" ItemContainerStyle="{StaticResource menu item 1}">
+
+                            <MenuItem Header="_Файл" ItemContainerStyle="{StaticResource menu item 2}">
+                                <MenuItem Header="_Создать" ItemContainerStyle="{StaticResource menu item 2}">
+                                    <MenuItem Header="_Проект" x:Name="CreateProjectButton"
+                                      Click="CreateProjectButton_Click"/>
+                                    <MenuItem Header="_Модуль" x:Name="CreateModuleButton"
+                                      Click="CreateModuleButton_Click"/>
+                                </MenuItem>
+                                <MenuItem Header="_Открыть проект" x:Name="OpenProjectButton"
+                                          Click="OpenProjectButton_Click"/>
+                                <MenuItem Header="_Сохранить модуль" x:Name="SaveModuleButton"
+                                          Click="SaveModuleButton_Click"/>
+                                <MenuItem Header="_Сохранить проект" x:Name="SaveProjectButton"
+                                          Click="SaveProjectButton_Click"/>
+                                <MenuItem Header="_Добавить модуль">
+                                    <MenuItem Header="_С сервера" />
+                                    <MenuItem Header="_С компьютера" />
+                                </MenuItem>
+                                <MenuItem Header="_Импортировать модуль"/>
+                                <MenuItem Header="_Пользователи проекта"/>
+                                <MenuItem Header="_Экспорт"/>
+                            </MenuItem>
+
+                            <MenuItem Header="_Правка" ItemContainerStyle="{StaticResource menu item 2}">
+                                <MenuItem Header="_Отменить"/>
+                                <MenuItem Header="_Вернуть"/>
+                            </MenuItem>
+
+                            <MenuItem Header="_Вид" ItemContainerStyle="{StaticResource menu item 2}">
+                            </MenuItem>
+
+                            <MenuItem Header="_Компиляция" ItemContainerStyle="{StaticResource menu item 2}">
+                                <MenuItem Header="_Проект" Click="CompileButton_Click" />
+                                <MenuItem Header="_Модуль"/>
+                            </MenuItem>
+
+                            <MenuItem Header="_Помощь" ItemContainerStyle="{StaticResource menu item 2}">
+                            </MenuItem>
+                        </Menu>
+                        <StackPanel Orientation="Horizontal" Margin="10 0 0 0">
+
+                            <Button Style="{StaticResource window bar tool bt}" Name="UndoButton">
+                                <Image Source="{StaticResource undo icon}"/>
+                            </Button>
+                            <Button Style="{StaticResource window bar tool bt}" Name="RedoButton">
+                                <Image Source="{StaticResource redo icon}"/>
+                            </Button>
+                            <Border     Margin="5 0" Width="1" Background="{StaticResource black 4}"/>
+
+                            <Button Style="{StaticResource window bar tool bt}" Name="ToolBarSaveModuleButton"
+                                    Click="SaveModuleButton_Click">
+                                <Image Source="{StaticResource save icon}"/>
+                            </Button>
+                            <Button Style="{StaticResource window bar tool bt}" Name="ToolBarSaveProjectButton"
+                                    Click="SaveProjectButton_Click">
+                                <Image Source="{StaticResource save all icon}"/>
+                            </Button>
+                            <Border     Margin="5 0" Width="1" Background="{StaticResource black 4}"/>
+
+                            <Button Style="{StaticResource window bar tool bt}" Name="CompileButton" 
+                                Click="CompileButton_Click">
+                                <Image Source="{StaticResource compile icon}"/>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                        <Button Style="{StaticResource window bar bt}" Name="SettingsButton">
+                            <Image Source="{StaticResource settings icon}" Width="30" Height="30"/>
+                        </Button>
+                        <Button Style="{StaticResource window bar bt}" Name="UserButton">
+                            <Label Style="{StaticResource avatar border}" Content="ФИ" Background="Gray" IsEnabled="False"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+
+                <Border.BitmapEffect>
+                    <DropShadowBitmapEffect Direction="270" ShadowDepth="3" Opacity=".3"/>
+                </Border.BitmapEffect>
+            </Border>
+            
+        </Grid>
+    </Grid>
+</Window>

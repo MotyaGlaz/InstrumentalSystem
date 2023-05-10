@@ -1,0 +1,39 @@
+﻿<Page x:Class="InstrumentalSystem.Client.View.Pages.ModuleCreation.SetNamePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:InstrumentalSystem.Client.View.Pages.ModuleCreation"
+      mc:Ignorable="d" 
+      HorizontalAlignment="Stretch"
+      VerticalAlignment="Stretch"
+      d:DesignHeight="650" d:DesignWidth="500"
+      Title="SetNamePage">
+
+    <Grid Margin="20">
+        <DockPanel LastChildFill="False">
+            <Label Content="Имя модуля:" DockPanel.Dock="Top" Foreground="{StaticResource black 1}"
+                   HorizontalAlignment="Left" FontSize="20"/>
+            <Border Background="{StaticResource black 5}" Margin="0 5 0 0" DockPanel.Dock="Top"
+                    BorderBrush="{StaticResource black 4}"
+                    BorderThickness="1" Height="25" IsEnabled="{Binding IsChecked, ElementName=isEmpty}">
+                <TextBox AcceptsReturn="False" BorderThickness="0" Foreground="{StaticResource black 1}"
+                     Background="Transparent" FontSize="15" VerticalContentAlignment="Bottom"
+                         Name="NameTextBox"/>
+            </Border>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 10 0 0">
+                <CheckBox VerticalAlignment="Center" Margin="0 5 0 0" x:Name="isEmpty" IsChecked ="False" Checked="isEmpty_Checked"/>
+                <Label Content="Пустой модуль" DockPanel.Dock="Top" Foreground="{StaticResource black 1}"
+                   HorizontalAlignment="Left" FontSize="20"/>
+                <Label Content="Уровень: " DockPanel.Dock="Top" Foreground="{StaticResource black 1}"
+                   HorizontalAlignment="Left" FontSize="20" Margin="30 0 0 0" Name="LevelLabel" IsEnabled="{Binding IsChecked, ElementName=isEmpty}"/>
+                <Border Background="{StaticResource black 5}" Margin="0 5 0 0" DockPanel.Dock="Top"
+                    BorderBrush="{StaticResource black 4}" BorderThickness="1" Height="25" Width="40" IsEnabled="{Binding IsChecked, ElementName=isEmpty}">
+                    <TextBox AcceptsReturn="False" BorderThickness="0" Foreground="{StaticResource black 1}"
+                     Background="Transparent" FontSize="15" VerticalContentAlignment="Bottom" Name="LevelTextBox"/>
+                </Border>
+            </StackPanel>
+
+        </DockPanel>
+    </Grid>
+</Page>

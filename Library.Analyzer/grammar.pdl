@@ -1,0 +1,342 @@
+﻿			ModuleInfo =
+				MODULE ID COLON INT_V SEMOCOLON;
+			
+			BaseModule =
+				BASE ID SEMOCOLON 
+				| "";
+			
+			UsesModeles =
+				USES ID Ids SEMOCOLON 
+				| USES ID SEMOCOLON;  
+			
+			Ids =
+				COMMA ID Ids 
+				| COMMA ID;
+			
+			Params =
+				PARAMS ID Ids SEMOCOLON 
+				| PARAMS ID SEMOCOLON;
+			
+			Real_Number =
+				REAL_V 
+				| ARTH_PM REAL_V;
+			
+			Int_Number =
+				INT_V 
+				| ARTH_PM INT_V;
+			
+			Prefixes =
+				Prefix Prefixes 
+				| Prefix;
+			
+			Prefix =
+				LPARENTHESIS ID IN Expression RPARENTHESIS;
+
+			Expression =
+				Arth_Expression 
+				| Symbol_Expression 
+				| Set_Expression;
+
+			Arth_Expression =
+				Arth_Term Arth_Terms |
+				Arth_Term;
+			
+			Arth_Terms =
+				ARTH_PM Arth_Term |
+				ARTH_PM Arth_Term Arth_Terms;
+			
+			Arth_Term =
+				Arth_Multiplier Arth_Multipliers |
+				Arth_Multiplier;
+			
+			Arth_Multipliers =
+				ARTH_TD Arth_Multiplier Arth_Multipliers 
+				| DIV Arth_Multiplier Arth_Multipliers 
+				| MOD Arth_Multiplier Arth_Multipliers 
+				| ARTH_TD Arth_Multiplier
+				| DIV Arth_Multiplier
+				| MOD Arth_Multiplier;
+			
+			Arth_Multiplier =
+				REAL_V 
+				| INT_V 
+				| ID 
+				| Arth_Sym_Expressions;
+
+			Arth_Sym_Expressions =
+				Arth_Expression 
+				| Symbol_Expression;
+
+			Symbol_Expression =
+				Symbol_Term Symbol_Terms 
+				| Symbol_Term;
+			
+			Symbol_Terms =
+				CONCAT Symbol_Term Symbol_Terms 
+				| CONCAT Symbol_Term;
+			
+			Symbol_Term =
+				STRING_V 
+				| ID 
+				| Arth_Sym_Expressions;
+
+			Set_Expression =
+				Set_Multiplier Set_Multipliers 
+				| Set_Multiplier;
+			
+			Set_Multipliers =
+				SET_PM Set_Multiplier Set_Multipliers 
+				| SET_PM Set_Multiplier;
+			
+			Set_Multiplier =
+				Elementary_Expression Elementary_Expressions 
+				| Elementary_Expression;
+			
+			Elementary_Expressions =
+				SET_TD Elementary_Expression Elementary_Expressions 
+				| SET_TD Elementary_Expression;
+			
+			Elementary_Expression =
+				ID 
+				| Arth_Sym_Expressions 
+				| Int_Set 
+				| Id_Set 
+				| Real_Set 
+				| String_Set 
+				| EMPTY_SET;
+
+			Int_Set = 
+				LBRACE Int_Number Ints RBRACE
+				| LBRACE Int_Number RBRACE;
+			
+			Id_Set =
+				LBRACE ID Ids RBRACE
+				| LBRACE ID RBRACE ;
+			
+			Real_Set =
+				LBRACE Real_Number Reals RBRACE 
+				| LBRACE Real_Number RBRACE;
+			
+			String_Set =
+				LBRACE STRING_V Strings RBRACE
+				| LBRACE STRING_V RBRACE;
+
+			Set_Definition = 
+				Interval 
+				| STRING 
+				| INT 
+				| REAL 
+				| Int_Set 
+				| Id_Set 
+				| String_Set 
+				| Real_Set 
+				| Quantifier_Expression;
+
+			Interval = 
+				Int_Interval 
+				| Real_Interval;
+			
+			Int_Interval = 
+				INT_S LBKT Int_Number COMMA Int_Number RBKT ;
+			
+			Real_Interval =
+				REAL_S LBKT Real_Number COMMA Real_Number RBKT;
+			
+			Reals = 
+				COMMA Real_Number Reals 
+				| COMMA Real_Number;
+			
+			Ints =
+				COMMA Int_Number Ints 
+				| COMMA Int_Number;
+			Strings =
+				COMMA STRING_V Strings 
+				| COMMA STRING_V;
+
+			Quantifier_Expression =
+				LBRACE Prefixes Formula RBRACE 
+				| LBRACE Prefixes Expression RBRACE;
+
+			Formula = Logical_Term 
+				| Logical_Term Logical_Terms;
+			
+			Logical_Terms =
+				OR Logical_Term Logical_Terms 
+				| OR Logical_Term;
+			
+			Logical_Term = 
+				Logical_Multiplier Logical_Multipliers 
+				| Logical_Multiplier;
+			
+			Logical_Multipliers = 
+				AND Logical_Multiplier Logical_Multipliers 
+				| AND Logical_Multiplier;
+			Logical_Multiplier = 
+				NOT Logical_Multiplier 
+				| ID 
+				| Formula 
+				| LOGICAL_CONSTANT 
+				| Logical_Relation;
+			
+			Logical_Relation = 
+				Expression LOGIC_RELATION Expression 
+				| Expression LOGIC_RELATION_SET Expression;
+			
+			
+			Expressions = 
+				COMMA Expression Expressions 
+				| COMMA Expression;
+			
+			Body = 
+				BEGIN Main_Names Additional_Names Limits END SEMOCOLON 
+				| BEGIN Additional_Names Limits END SEMOCOLON
+				| BEGIN Main_Names Limits END SEMOCOLON
+				| BEGIN Main_Names Additional_NamesEND SEMOCOLON
+				| BEGIN Additional_Names END SEMOCOLON
+				| BEGIN Main_Names END SEMOCOLON
+				| BEGIN END SEMOCOLON;
+			
+			Main_Names = 
+				Main_Name Main_Names 
+				| Main_Name;
+			
+			Additional_Names = 
+				Additional_Name Additional_Names 
+				| Additional_Name;
+			
+			Limits = 
+				Limit Limits 
+				| Limit;
+			
+			Main_Name = 
+				Prefixes SORT Expression Expressions COLON Set_Definition SEMOCOLON 
+				| Prefixes SORT Expression COLON Set_Definition SEMOCOLON
+				| SORT Expression Expressions COLON Set_Definition SEMOCOLON
+				| SORT Expression COLON Set_Definition SEMOCOLON;
+			
+			Additional_Name =
+				Prefixes Expression Expressions '=' Expression SEMOCOLON
+				| Prefixes Expression '=' Expression SEMOCOLON 
+				| Expression Expressions '=' Expression SEMOCOLON
+				| Expression '=' Expression SEMOCOLON;
+			
+			Limit = 
+				Prefixes LPARENTHESIS Formula RPARENTHESIS 
+				| LPARENTHESIS Formula RPARENTHESIS;
+			
+			Constructs = 
+				Construct Constructs 
+				| Construct;
+			
+			Construct = 
+				ID '=' L_Term SEMOCOLON;
+			
+			L_Term = 
+				LPARENTHESIS LAMBDA LPARENTHESIS Prefixes RPARENTHESIS Formula RPARENTHESIS SEMOCOLON 
+				| LPARENTHESIS LAMBDA LPARENTHESIS Prefixes RPARENTHESIS Expression RPARENTHESIS SEMOCOLON ;
+			
+			Start =
+				ModuleInfo BaseModule UsesModeles Body Params Constructs 
+				| ModuleInfo UsesModeles Body Params Constructs
+				| ModuleInfo BaseModule Body Params Constructs
+				| ModuleInfo Body Params Constructs
+				| ModuleInfo BaseModule UsesModeles Body
+				| ModuleInfo BaseModule UsesModeles Body Params
+				| ModuleInfo UsesModeles Body
+				| ModuleInfo BaseModule Body
+				| ModuleInfo Body
+				| ModuleInfo UsesModeles Body Params
+				| ModuleInfo BaseModule Body Params
+				| ModuleInfo Body Params;
+			
+			REAL_V = 
+				INT_V POINT INT_V;
+			
+			MODULE ~ /Module/ ;
+			
+			COLON ~ /[:]/ ;
+
+			SEMOCOLON ~ /[;]/ ;
+
+			POINT ~ /[.]/;
+
+			COMMA ~ /[,]/;
+
+			LBKT ~ /[/;
+
+			RBKT ~ /]/;
+			
+			LBRACE ~ /[{]/;
+			
+			RBRACE ~ /[}]/;
+			
+			LPARENTHESIS ~ /[(]/;
+			
+			RPARENTHESIS ~ /[)]/;
+
+			BASE ~ /Base/ ;
+			
+			USES ~ /Uses/ ;
+			
+			BEGIN ~ /Begin/ ;
+			
+			END ~ /End/ ;
+			
+			PARAMS ~ /Params/ ;
+			
+			CONSTRUCT ~ /Construct/ ;
+			
+			LAMBDA ~ /Lambda/ ;
+			
+			INT ~ /Int/ ;
+			
+			INT_V ~ /[0-9]+/ ;
+			
+			INT_S ~ /[I]/ ;
+			
+			REAL ~ /Real/ ;
+			
+			REAL_S ~ /[R]/ ;
+			
+			STRING ~ /String/ ;
+			
+			STRING_V ~ /[""][^""]*[""]/ ;
+			
+			SORT ~ /Sort/ ;
+			
+			EMPTY_SET ~ /Empty_set/ ;
+			
+			DIV ~ /Div/ ;
+			
+			MOD ~ /Mod/ ;
+			
+			IN ~ /In/ ;
+			
+			SET_PM ~ /Un|Dif/ ;
+			
+			SET_TD ~ /ISec/ ;
+			
+			NOT ~ /Not/ ;
+			
+			LOGIC_RELATION ~ /[<=]|[>=]|[!=]|[==]|[<]|[>]/ ;
+			
+			LOGIC_RELATION_SET ~ /Subset|Sub_eq/ ;
+			
+			OR ~ /Or|[|]/ ;
+		
+			AND ~ /And|[&]/ ;
+			
+			CONCAT ~ /[|]{2}/ ;
+			
+			ARTH_PM ~ /[+]|[-]/ ;
+			
+			ARTH_TD ~ /[*]|[/]/ ;
+			
+			LOGICAL_CONSTANT ~ /FALSE|TRUE/ ;
+			
+			ID ~ /[a-zA-Zа-яА-Я_][a-zA-Zа-яА-Я0-9_]+/ ;
+			
+			Whitespace ~ /[\s]+/ ;
+	
+:start = Start;
+:ignore = Whitespace;

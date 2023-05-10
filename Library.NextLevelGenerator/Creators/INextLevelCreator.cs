@@ -1,0 +1,14 @@
+﻿using Library.General.NameTable;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Library.NextLevelGenerator.Creators
+{
+    public interface INextLevelCreator
+    {
+        IModuleNameTable ModuleNameTable { get; }
+    }
+}

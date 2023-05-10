@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="InstrumentalSystem.Client.View.Modal.ModuleCreationModal"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InstrumentalSystem.Client.View.Modal"
+             mc:Ignorable="d" 
+             BorderThickness="0"
+             d:DesignHeight="1000" d:DesignWidth="1500"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch">  
+    <Grid Height="Auto" Width="Auto"> 
+        <Rectangle x:Name="CancelArea" Fill="Black" Opacity="0.3"/>
+        <Border Margin="100" Background="{StaticResource main 5}" CornerRadius="11" MaxWidth="700">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" MinWidth="150" MaxWidth="250"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <GridSplitter Grid.Column="1" Grid.RowSpan="3" Style="{StaticResource grid splitter}" Width="2"/>
+
+                <!--Нижняя панель-->
+                <Border Grid.Row="2" Grid.ColumnSpan="3" CornerRadius="0 0 10 10" Background="{StaticResource black 5}">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+
+                        <Button Margin="10" Style="{StaticResource modal bt}" Content="Далее" x:Name="NextButton" Click="NextButton_Click"/>
+
+                    </StackPanel>
+                </Border>
+
+                <!--Список задач-->
+                <ListView Margin="0 5 0 0" Style="{StaticResource list view}" Grid.Row="1" x:Name="TaskList">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource task list item}">
+                            <Setter Property="Content"  Value="{Binding Task}"/>
+                            <Setter Property="IsEnabled"  Value="{Binding InProgress}"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+
+                </ListView>
+
+                <!--Задача-->
+                <Frame Margin="0 5 0 0" Grid.Row="1" Grid.Column="2" x:Name="TaskPage" NavigationUIVisibility="Hidden"/>
+
+                <!--Верхняя панель-->
+                <Border Grid.Row="0" Grid.ColumnSpan="3" CornerRadius="10 10 0 0" Background="{StaticResource main 3}">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="20 10" >
+                            <Image Source="{StaticResource module creation}" Width="40" Height="40"/>
+                            <Label Content="Создание нового модуля" VerticalAlignment="Center" FontSize="25" 
+                                   FontWeight="Bold" Foreground="{StaticResource black 5}" Margin="10 0 0 0"/>
+                        </StackPanel>
+
+                        <Button Margin="10" Style="{StaticResource modal bt}" Content="✕" FontWeight="Bold"
+                                x:Name="CloseButton" Click="CloseButton_Click" HorizontalAlignment="Right"/>
+
+                    </Grid>
+                    <Border.BitmapEffect>
+                        <DropShadowBitmapEffect Direction="270" ShadowDepth="3" Opacity=".3"/>
+                    </Border.BitmapEffect>
+                </Border>
+                
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

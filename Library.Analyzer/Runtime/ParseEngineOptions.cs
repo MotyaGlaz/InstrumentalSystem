@@ -1,0 +1,17 @@
+﻿namespace Library.Analyzer.Runtime
+{
+    public class ParseEngineOptions
+    {
+        public bool OptimizeRightRecursion { get; private set; }
+        public bool LoggingEnabled { get; private set; }
+
+        public ParseEngineOptions(
+            bool optimizeRightRecursion = true, 
+            bool loggingEnabled = false,
+            bool errorRecoveryEnabled = false)
+        {
+            OptimizeRightRecursion = optimizeRightRecursion;
+            LoggingEnabled = loggingEnabled;
+        }
+    }
+}

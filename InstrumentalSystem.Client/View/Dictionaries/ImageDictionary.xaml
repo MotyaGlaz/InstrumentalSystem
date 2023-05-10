@@ -1,0 +1,35 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <BitmapImage x:Key="settings icon" UriSource="\View\Images\buttons\settingsIcon.png"></BitmapImage>
+    <BitmapImage x:Key="undo icon" UriSource="\View\Images\buttons\undoIcon.png"></BitmapImage>
+    <BitmapImage x:Key="redo icon" UriSource="\View\Images\buttons\redoIcon.png"></BitmapImage>
+    <BitmapImage x:Key="save icon" UriSource="\View\Images\buttons\saveIcon.png"></BitmapImage>
+    <BitmapImage x:Key="save all icon" UriSource="\View\Images\buttons\saveAllIcon.png"></BitmapImage>
+    <BitmapImage x:Key="compile icon" UriSource="\View\Images\buttons\compileIcon.png"></BitmapImage>
+    <BitmapImage x:Key="local files icon" UriSource="\View\Images\buttons\localFilesIcon.png"></BitmapImage>
+    <BitmapImage x:Key="global files icon" UriSource="\View\Images\buttons\globalFilesIcon.png"></BitmapImage>
+
+    <BitmapImage x:Key="module creation" UriSource="\View\Images\modals\moduleCreationIcon.png"></BitmapImage>
+    <BitmapImage x:Key="project creation" UriSource="\View\Images\modals\projectCreationIcon.png"></BitmapImage>
+    <BitmapImage x:Key="user icon" UriSource="\View\Images\modals\userIcon.png"></BitmapImage>
+
+    <BitmapImage x:Key="projects icon" UriSource="\View\Images\projectsIcon.png"></BitmapImage>
+
+    <BitmapImage x:Key="input module icon" UriSource="\View\Images\modules\inputModuleIcon.png"></BitmapImage>
+    <BitmapImage x:Key="output module icon" UriSource="\View\Images\modules\outputModuleIcon.png"></BitmapImage>
+    <BitmapImage x:Key="master module icon" UriSource="\View\Images\modules\masterModuleIcon.png"></BitmapImage>
+    <BitmapImage x:Key="logic module icon" UriSource="\View\Images\modules\logicModuleIcon.png"></BitmapImage>
+    <BitmapImage x:Key="project icon" UriSource="\View\Images\modules\projectIcon.png"></BitmapImage>
+    <BitmapImage x:Key="module icon" UriSource="\View\Images\modules\moduleIcon.png"></BitmapImage>
+
+    <BitmapImage x:Key="role editor icon" UriSource="\View\Images\roles\roleEditorIcon.png"></BitmapImage>
+    <BitmapImage x:Key="role owner icon" UriSource="\View\Images\roles\roleOwnerIcon.png"></BitmapImage>
+    <BitmapImage x:Key="role viewer icon" UriSource="\View\Images\roles\roleViewerIcon.png"></BitmapImage>
+    
+
+
+
+
+
+</ResourceDictionary>

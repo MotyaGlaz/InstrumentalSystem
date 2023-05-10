@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "Server.Protos";
+
+package calculation;
+
+service Calculation {
+	rpc Add(IntNumbers) returns (CalculationResult);
+}
+
+message IntNumbers{
+	int32 Namber1 = 1;
+	int32 Namber2 = 2;
+}
+
+message CalculationResult{
+	int32 Result = 1;
+}

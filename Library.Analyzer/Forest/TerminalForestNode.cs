@@ -1,0 +1,62 @@
+﻿using Library.Analyzer.Utilities;
+
+namespace Library.Analyzer.Forest
+{
+    public class TerminalForestNode : ForestNodeBase, ITerminalForestNode
+    {
+        public char Capture { get; private set; }
+
+        public TerminalForestNode(char capture, int origin, int location)
+            : base(origin, location)
+        {
+            Capture = capture;
+            _hashCode = ComputeHashCode();
+        }
+
+        public override ForestNodeType NodeType
+        {
+            get { return ForestNodeType.Terminal; }
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "HAA0601:Value type to reference type conversion causing boxing allocation", Justification = "ToString is not called in performance critical code")]
+        public override string ToString()
+        {
+            return $"({(Capture == '\0' ? "null" : Capture.ToString())}, {Origin}, {Location})";
+        }
+
+        public override void Accept(IForestNodeVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is null)
+                return false;
+
+            if (!(obj is TerminalForestNode terminalNode))
+                return false;
+
+            return Location == terminalNode.Location
+                && NodeType == terminalNode.NodeType
+                && Origin == terminalNode.Origin
+                && Capture.Equals(terminalNode.Capture);
+        }
+
+        private readonly int _hashCode;
+
+        private int ComputeHashCode()
+        {
+            return HashCode.Compute(
+                ((int)NodeType).GetHashCode(),
+                Location.GetHashCode(),
+                Origin.GetHashCode(),
+                Capture.GetHashCode());
+        }
+
+        public override int GetHashCode()
+        {
+            return _hashCode;
+        }
+    }
+}

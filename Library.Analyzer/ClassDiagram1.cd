@@ -1,0 +1,1929 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Library.Analyzer.Automata.DfaLexeme" Collapsed="true">
+    <Position X="15.75" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAEAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Automata\DfaLexeme.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Automata.DfaLexemeFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="57.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAGAAAAAAAAAAAAI=</HashCode>
+      <FileName>Automata\DfaLexemeFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Automata.DfaLexerRule" Collapsed="true">
+    <Position X="2" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAEgAAQAAAAAAAAgIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Automata\DfaLexerRule.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Automata.DfaState" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="59" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAEAAAAAAIAAAAACAAAAAA=</HashCode>
+      <FileName>Automata\DfaState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Automata.DfaTransition" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="60.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Automata\DfaTransition.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Automata.IntervalTree" Collapsed="true">
+    <Position X="59" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQAAAAAAAAAAQAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Automata\IntervalTree.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Automata.Nfa" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="53.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAQAARAA=</HashCode>
+      <FileName>Automata\Nfa.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Automata.NfaState" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="55.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQQAAAAAAAEABAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Automata\NfaState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Automata.NullNfaTransition" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="59" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Automata\NullNfaTransition.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Automata.Range" Collapsed="true">
+    <Position X="57.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Automata\Range.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Automata.SubsetConstructionAlgorithm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="60.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Automata\SubsetConstructionAlgorithm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Automata.TableDfa" Collapsed="true">
+    <Position X="62.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAkCAAAAAAAAAAABAQAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Automata\TableDfa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Automata.TableNfa" Collapsed="true">
+    <Position X="64.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAIkSAAAAAAAAAAAAAQAIAIAAAAAAAAAA=</HashCode>
+      <FileName>Automata\TableNfa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Automata.TerminalNfaTransition" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="52" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAABAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Automata\TerminalNfaTransition.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Builders.Expressions.BaseExpression" Collapsed="true">
+    <Position X="26" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAQQAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builders\Expressions\BaseExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Builders.Expressions.Expr" Collapsed="true">
+    <Position X="27.25" Y="25.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builders\Expressions\Expr.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Builders.Expressions.GrammarExpression" Collapsed="true">
+    <Position X="64.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAQAAAAAAAAAAgAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Builders\Expressions\GrammarExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Builders.Expressions.NamespaceExpression" Collapsed="true">
+    <Position X="52" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAQAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builders\Expressions\NamespaceExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Builders.Expressions.ProductionExpression" Collapsed="true">
+    <Position X="22.75" Y="24" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAQBAAAAIQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builders\Expressions\ProductionExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Builders.Expressions.ProductionReferenceExpression" Collapsed="true">
+    <Position X="25" Y="24" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builders\Expressions\ProductionReferenceExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Builders.Expressions.RuleExpression" Collapsed="true">
+    <Position X="27.25" Y="24" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAQCAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builders\Expressions\RuleExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Builders.Expressions.SymbolExpression" Collapsed="true">
+    <Position X="29.5" Y="24" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builders\Expressions\SymbolExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Builders.AlterationModel" Collapsed="true">
+    <Position X="50.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builders\AlterationModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Builders.GrammarModel" Collapsed="true">
+    <Position X="50.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gBABADEIISABgmAAQEAAAEAEECAARQAAAAAGQAAQgCE=</HashCode>
+      <FileName>Builders\GrammarModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Builders.IgnoreSettingModel" Collapsed="true">
+    <Position X="5.25" Y="25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Builders\IgnoreSettingModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Builders.LexerRuleModel" Collapsed="true">
+    <Position X="29.5" Y="21" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAgAAAAAAAAAAAAIAAAAAgAAAACAA=</HashCode>
+      <FileName>Builders\LexerRuleModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Builders.NonTerminalModel" Collapsed="true">
+    <Position X="22.75" Y="21" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAEgAAAAAAAAAAAAIAAAAAACAAACAA=</HashCode>
+      <FileName>Builders\NonTerminalModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Builders.ProductionModel" Collapsed="true">
+    <Position X="25" Y="21" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAEAAAAEAAACAAAAAAQQAAAAAAAAAAAAAAQACAA=</HashCode>
+      <FileName>Builders\ProductionModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Builders.ProductionReferenceModel" Collapsed="true">
+    <Position X="27.25" Y="21" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAEAAAAAAAAAAAAAAACAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Builders\ProductionReferenceModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Builders.ReachibilityMatrix" Collapsed="true">
+    <Position X="59" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEACAIAgAAAAAAAEAABBAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Builders\ReachibilityMatrix.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Builders.SettingModel" Collapsed="true">
+    <Position X="3" Y="23.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Builders\SettingModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Builders.StartProductionSettingModel" Collapsed="true">
+    <Position X="0.75" Y="25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Builders\StartProductionSettingModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Builders.SymbolModel" Collapsed="true">
+    <Position X="26" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Builders\SymbolModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Builders.TriviaSettingModel" Collapsed="true">
+    <Position X="3" Y="25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Builders\TriviaSettingModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Captures.Capture&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="60.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAUqAAAQAQAAAAAAIAAAACAEACAgiA=</HashCode>
+      <FileName>Captures\Capture.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Captures.CaptureExtensions" Collapsed="true">
+    <Position X="62.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAEAAQAAAIAAAAQAAAAAAAAEAACAAAAAAA=</HashCode>
+      <FileName>Captures\CaptureExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Captures.StringBuilderCapture" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="55.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAUiAAEQAQAAAAAAIAAAAAAAACAgiA=</HashCode>
+      <FileName>Captures\StringBuilderCapture.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Captures.StringCapture" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="57.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAUiAAAQAQAAAAAAIAAAAQAAACAgiA=</HashCode>
+      <FileName>Captures\StringCapture.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Charts.CachedDottedRuleSetTransition" Collapsed="true">
+    <Position X="59" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAgACAA=</HashCode>
+      <FileName>Charts\CachedDottedRuleSetTransition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Charts.Chart" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="64.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAoAUAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Charts\Chart.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Charts.DeterministicChart" Collapsed="true">
+    <Position X="50.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAACAAAAAAQAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Charts\DeterministicChart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Charts.DeterministicSet" Collapsed="true">
+    <Position X="53.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEBBAAAAAAAAAAAAIAIAAAAEAAAAAAAAAAAABAAAAQA=</HashCode>
+      <FileName>Charts\DeterministicSet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Charts.DeterministicState" Collapsed="true">
+    <Position X="55.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAgIAgAAAA=</HashCode>
+      <FileName>Charts\DeterministicState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Charts.EarleySet" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="52" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEFAUAAAAAAAABAAAAMAgAAEAAIAAEAgQKABCAIQgAA=</HashCode>
+      <FileName>Charts\EarleySet.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Charts.NormalState" Collapsed="true">
+    <Position X="13.5" Y="28" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQAAAAAAAAAAAAEgAAAAAAAAAAAAIAAAAAgAACAAAA=</HashCode>
+      <FileName>Charts\NormalState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Charts.NormalStateHashCodeAlgorithm" Collapsed="true">
+    <Position X="57.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Charts\NormalStateHashCodeAlgorithm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Charts.StateBase" Collapsed="true">
+    <Position X="14.75" Y="26.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAEAiAAAA=</HashCode>
+      <FileName>Charts\StateBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Charts.StateFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="53.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Charts\StateFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Charts.TransitionState" Collapsed="true">
+    <Position X="15.75" Y="28" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAAIAAAAAAAAAEwAAAAAAAAAAAAIABAAEgAACAAAA=</HashCode>
+      <FileName>Charts\TransitionState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Collections.AvlTree&lt;T&gt;" Collapsed="true">
+    <Position X="55.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABEAABAgQABAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Collections\AvlTree.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Collections.BitMatrix" Collapsed="true">
+    <Position X="57.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAEiAAAAABAAAAAAIAAAAAAAQBAABA=</HashCode>
+      <FileName>Collections\BitMatrix.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Collections.DictionaryExtensions" Collapsed="true">
+    <Position X="62.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAACA=</HashCode>
+      <FileName>Collections\DictionaryExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Collections.FastLookupDictionary&lt;TKey, TValue&gt;" Collapsed="true">
+    <Position X="55.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAIAAQAAAAAEBBBYCAAABQQQAAAAACAHAACwAATQIAA=</HashCode>
+      <FileName>Collections\FastLookupDictionary.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Collections.IndexedList&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="55.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEIAAGAAAAAAABAQCAAABAQQAAAAAAAECAABAABQIAA=</HashCode>
+      <FileName>Collections\IndexedList.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Collections.ProcessOnceQueue&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="53.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAQACEABAAEAAAEAQAAAQCBAAEAAAAAABAIAA=</HashCode>
+      <FileName>Collections\ProcessOnceQueue.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Collections.UniqueList&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="60.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEIAAEACAAAAEBAwjgAgBFQQAAAAAIAFCAAgAABQIAI=</HashCode>
+      <FileName>Collections\UniqueList.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Diagnostics.Assert" Collapsed="true">
+    <Position X="53.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAgAAAYAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Diagnostics\Assert.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Forest.AndForestNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="52" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAEAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forest\AndForestNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Forest.DisambiguatingForestNodeVisitorBase" Collapsed="true">
+    <Position X="22.5" Y="27" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forest\DisambiguatingForestNodeVisitorBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Forest.ForestNodeBase" Collapsed="true">
+    <Position X="5.25" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAACAAAAAAAAAAgAIAAAAAAAAAAIAAAAAgAAgAAAA=</HashCode>
+      <FileName>Forest\ForestNodeBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Forest.ForestNodeReference" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="57.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Forest\ForestNodeReference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Forest.ForestNodeSet" Collapsed="true">
+    <Position X="59" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQABAQAgMAAAAAAAAAAAAAAAAAAAAAAAYAAAABABAE=</HashCode>
+      <FileName>Forest\ForestNodeSet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Forest.ForestNodeVisitorBase" Collapsed="true">
+    <Position X="22.5" Y="25.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forest\ForestNodeVisitorBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Forest.IntermediateForestNode" Collapsed="true">
+    <Position X="5.25" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAACAAAAAAAAAEgAAAAAAAAAAAAIAAAAAgEAAAAAA=</HashCode>
+      <FileName>Forest\IntermediateForestNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Forest.InternalForestNode" Collapsed="true">
+    <Position X="5.25" Y="21" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAgAAAgAAAAAEAAAEAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Forest\InternalForestNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Forest.LoggingForestNodeVisitor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="64.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAgAAEAAQAAAAAEAAAAAAAAEAAAAAAAAAAAoA=</HashCode>
+      <FileName>Forest\LoggingForestNodeVisitor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Forest.SelectFirstChildDisambiguationAlgorithm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="64.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forest\SelectFirstChildDisambiguationAlgorithm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Forest.SelectHigherPrecedenceDisambiguationAlgorithm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="50.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forest\SelectHigherPrecedenceDisambiguationAlgorithm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Forest.SymbolForestNode" Collapsed="true">
+    <Position X="7.5" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAACAAAAAAAAAEgAAAAAAAAAAAAIAAAAAgAAAACAA=</HashCode>
+      <FileName>Forest\SymbolForestNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Forest.TerminalForestNode" Collapsed="true">
+    <Position X="9.75" Y="21" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAACAAAAAAAAAEgAAAAAAAAAAAAIAAABAgAAAAAAA=</HashCode>
+      <FileName>Forest\TerminalForestNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Forest.TokenForestNode" Collapsed="true">
+    <Position X="0.75" Y="21" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAACAAAAAAAAAAgAAAAAAAAAAAAIAAAAAgAAABAAA=</HashCode>
+      <FileName>Forest\TokenForestNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Forest.VirtualForestNode" Collapsed="true">
+    <Position X="3" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAACAAAAACAACUgIAEABAAAAAAAIABAIAgBAAACAA=</HashCode>
+      <FileName>Forest\VirtualForestNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Forest.VirtualForestNodePath" Collapsed="true">
+    <Position X="62.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAAgAAAAAAEAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Forest\VirtualForestNodePath.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.AnyLexerRule" Collapsed="true">
+    <Position X="5.5" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAQAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Grammars\AnyLexerRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.AnyTerminal" Collapsed="true">
+    <Position X="10.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAACAAAEgIAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\AnyTerminal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.BaseLexerRule" Collapsed="true">
+    <Position X="6.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgCAAAAQAAAAAAAAACgAAAAAAAAAAgA=</HashCode>
+      <FileName>Grammars\BaseLexerRule.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.BaseTerminal" Collapsed="true">
+    <Position X="14" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\BaseTerminal.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.CharacterClassTerminal" Collapsed="true">
+    <Position X="12.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAAACAAAAAAAAAAAAAAAAAAAAAAIAAEAAAAA=</HashCode>
+      <FileName>Grammars\CharacterClassTerminal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.CharacterTerminal" Collapsed="true">
+    <Position X="15" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAAACAAAEgAAAAAAAAAAAAIAAAAAAAAAACAA=</HashCode>
+      <FileName>Grammars\CharacterTerminal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.DigitTerminal" Collapsed="true">
+    <Position X="19.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAAACAAAEgAAEAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\DigitTerminal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.DottedRule" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="64.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAEAAAgAAAARkgACAAgAAIAAEAJAAAAAgAAAAByA=</HashCode>
+      <FileName>Grammars\DottedRule.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.DottedRuleRegistry" Collapsed="true">
+    <Position X="12.5" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAABAAIAAAAAAABAAAA=</HashCode>
+      <FileName>Grammars\DottedRuleRegistry.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.DottedRuleSet" Collapsed="true">
+    <Position X="50.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAEAAQAAAQhAAAgAACAAARAJAACCAgAAAQARA=</HashCode>
+      <FileName>Grammars\DottedRuleSet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.FullyQualifiedName" Collapsed="true">
+    <Position X="60.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAIAEgAAAAAQAAAAAIIAAAAAgAAAAAiA=</HashCode>
+      <FileName>Grammars\FullyQualifiedName.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.Grammar" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="62.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAIhMAEIQioBCgAAAsADIAAACQAIAABQAkAABEAAICA=</HashCode>
+      <FileName>Grammars\Grammar.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.GrammarLexerRule" Collapsed="true">
+    <Position X="12.25" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAQAAAAAAACAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Grammars\GrammarLexerRule.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.GrammarSeededDottedRuleRegistry" Collapsed="true">
+    <Position X="12.5" Y="20" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\GrammarSeededDottedRuleRegistry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.GrammarWrapper" Collapsed="true">
+    <Position X="1.75" Y="26.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAEAAiABAAAAAgABAAAACAAAAAAAQkAAAAAAICA=</HashCode>
+      <FileName>Grammars\GrammarWrapper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.Grouping" Collapsed="true">
+    <Position X="9.75" Y="25.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACgAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\Grouping.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.LetterTerminal" Collapsed="true">
+    <Position X="6" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAAACAAAEgAAEAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\LetterTerminal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.LexerRuleType" Collapsed="true">
+    <Position X="62.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAgAAAAAiA=</HashCode>
+      <FileName>Grammars\LexerRuleType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.NegationTerminal" Collapsed="true">
+    <Position X="8.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAQgAAACAAAAgAAAAAAAAAAAAIAAAAIgAAAAAAA=</HashCode>
+      <FileName>Grammars\NegationTerminal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.NonTerminal" Collapsed="true">
+    <Position X="1.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAEgAAAAEAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Grammars\NonTerminal.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.Optional" Collapsed="true">
+    <Position X="8.5" Y="27" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\Optional.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.PreComputedGrammar" Collapsed="true">
+    <Position X="52" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQAAAAAABSABAQEAAAAAAAAAIgICBAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Grammars\PreComputedGrammar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.Production" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="55.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAAAAAAAAAAAkgAAAAAAAAAAAAIAAAAAgAAQAACA=</HashCode>
+      <FileName>Grammars\Production.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.RangeTerminal" Collapsed="true">
+    <Position X="17.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAgACACAAAEgAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\RangeTerminal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.Repetition" Collapsed="true">
+    <Position X="10.75" Y="27" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\Repetition.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.SetTerminal" Collapsed="true">
+    <Position X="21.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAAACAAAkAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Grammars\SetTerminal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.StringLiteralLexerRule" Collapsed="true">
+    <Position X="7.75" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAEgAAUAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Grammars\StringLiteralLexerRule.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.Symbol" Collapsed="true">
+    <Position X="12.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\Symbol.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.TerminalLexerRule" Collapsed="true">
+    <Position X="10" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAABAAEgAAQAAAAAAACAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Grammars\TerminalLexerRule.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.TokenType" Collapsed="true">
+    <Position X="59" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAAAAAAAAEgAAAAAAAAAAAAIAAAAAgAAAAAiA=</HashCode>
+      <FileName>Grammars\TokenType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.WhitespaceTerminal" Collapsed="true">
+    <Position X="24" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAACAAAEgIAEAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\WhitespaceTerminal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Grammars.WordTerminal" Collapsed="true">
+    <Position X="3.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\WordTerminal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.LexerRules.DoubleQuoteStringLexerRule" Collapsed="true">
+    <Position X="1" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAiAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LexerRules\DoubleQuoteStringLexerRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.LexerRules.SingleQuoteStringLexerRule" Collapsed="true">
+    <Position X="3.25" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAiAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LexerRules\SingleQuoteStringLexerRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlBlock" Collapsed="true">
+    <Position X="11.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PDL\PdlBlock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlBlockRule" Collapsed="true">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAEAAAAAAgAAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>PDL\PdlBlock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlBlockSetting" Collapsed="true">
+    <Position X="11.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAAgAAAAAAAAAAAAIAAAAAgAABAAAA=</HashCode>
+      <FileName>PDL\PdlBlock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlBlockLexerRule" Collapsed="true">
+    <Position X="14" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCACAAAAAAAAAAgAAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>PDL\PdlBlock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlDefinition" Collapsed="true">
+    <Position X="25.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQEACAAAAAAAAAAgAAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>PDL\PdlDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlDefinitionConcatenation" Collapsed="true">
+    <Position X="25.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAACAAAgAAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>PDL\PdlDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlExpressionEmpty" Collapsed="true">
+    <Position X="32" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAAgAAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>PDL\PdlExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlExpression" Collapsed="true">
+    <Position X="32" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAAAAAAAAAIAAEAAgAAAAAAA=</HashCode>
+      <FileName>PDL\PdlExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlExpressionAlteration" Collapsed="true">
+    <Position X="32" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAAAAAAAAAIAQAAAgAAAAAAA=</HashCode>
+      <FileName>PDL\PdlExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlFactor" Collapsed="true">
+    <Position X="42" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PDL\PdlFactor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlFactorIdentifier" Collapsed="true">
+    <Position X="43.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAAAAAAAAAIAAAAAgACAAAAA=</HashCode>
+      <FileName>PDL\PdlFactor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlFactorLiteral" Collapsed="true">
+    <Position X="45.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>PDL\PdlFactor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlFactorRegex" Collapsed="true">
+    <Position X="47.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAABAAEgAAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>PDL\PdlFactor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlFactorRepetition" Collapsed="true">
+    <Position X="36.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAAAAAAAAAIAQAAAgAAAAAAA=</HashCode>
+      <FileName>PDL\PdlFactor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlFactorOptional" Collapsed="true">
+    <Position X="38.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAAAAAAAAAIAQAAAgAAAAAAA=</HashCode>
+      <FileName>PDL\PdlFactor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlFactorGrouping" Collapsed="true">
+    <Position X="41" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAAAAAAAAAIAQAAAgAAAAAAA=</HashCode>
+      <FileName>PDL\PdlFactor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlGrammar" Collapsed="true">
+    <Position X="0.5" Y="28" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQHAoBCAEAACAQAAQAAAAAAAAAgIAAQEQAASiBAAAA=</HashCode>
+      <FileName>PDL\PdlGrammar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlGrammarGenerator" Collapsed="true">
+    <Position X="64.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAHAoBAAEAACAAAAAAACAAAESAgBAAQEAAEClAQAAA=</HashCode>
+      <FileName>PDL\PdlGrammarGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlLexerRule" Collapsed="true">
+    <Position X="18.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAAgAAAAAAAAAAAAIAQAAAgACAAAAA=</HashCode>
+      <FileName>PDL\PdlLexerRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlLexerRuleExpression" Collapsed="true">
+    <Position X="23" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAAgAAAAAAAAAAAAIAAEAAgAAAAAAA=</HashCode>
+      <FileName>PDL\PdlLexerRuleExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlLexerRuleExpressionAlteration" Collapsed="true">
+    <Position X="23" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAAgAAAAAAAAAAAAIAQAAAgAAAAAAA=</HashCode>
+      <FileName>PDL\PdlLexerRuleExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlLexerRuleFactor" Collapsed="true">
+    <Position X="28.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PDL\PdlLexerRuleFactor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlLexerRuleFactorLiteral" Collapsed="true">
+    <Position X="27.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAAgAAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>PDL\PdlLexerRuleFactor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlLexerRuleFactorRegex" Collapsed="true">
+    <Position X="29.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAABAAAgAAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>PDL\PdlLexerRuleFactor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlLexerRuleTerm" Collapsed="true">
+    <Position X="34.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACBAAAAAAAAAgAAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>PDL\PdlLexerRuleTerm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlLexerRuleTermConcatenation" Collapsed="true">
+    <Position X="34.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAAgAAAAAAAAAAAAIAAEAAgAAAAAAA=</HashCode>
+      <FileName>PDL\PdlLexerRuleTerm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlNode" Collapsed="true">
+    <Position X="25.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PDL\PdlNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlParser" Collapsed="true">
+    <Position X="50.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAQAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PDL\PdlParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlParseTreeVisitor" Collapsed="true">
+    <Position X="2.75" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAACCBQIEChAFAAAEAAAAARBAAAAAAQAAAA=</HashCode>
+      <FileName>PDL\PdlParseTreeVisitor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlQualifiedIdentifier" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAAAAAAAAAIAAAAAgQAAAAAA=</HashCode>
+      <FileName>PDL\PdlQualifiedIdentifier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlQualifiedIdentifierConcatenation" Collapsed="true">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAAAAAAAAAIAAAAAgACAAAAA=</HashCode>
+      <FileName>PDL\PdlQualifiedIdentifier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlRule" Collapsed="true">
+    <Position X="5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAAAAAAAAAIAQAAAgACAAAAA=</HashCode>
+      <FileName>PDL\PdlRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlSetting" Collapsed="true">
+    <Position X="7.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAQAgAAAAAAAAAAAAIAAAAAgACAAAAA=</HashCode>
+      <FileName>PDL\PdlSetting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlSettingIdentifier" Collapsed="true">
+    <Position X="16.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAAgAAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>PDL\PdlSettingIdentifier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlTerm" Collapsed="true">
+    <Position X="20.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACBAAAAAAAAEgAAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>PDL\PdlTerm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.PDL.PdlTermConcatenation" Collapsed="true">
+    <Position X="20.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAAAAAAAAAIAAEAAgAAAAAAA=</HashCode>
+      <FileName>PDL\PdlTerm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pliant.Observable&lt;T&gt;" Collapsed="true">
+    <Position X="64.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAACAAAIAAAAAAAAAAAACAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Reactive\Observable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pliant.Observer&lt;T&gt;" Collapsed="true">
+    <Position X="50.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAQAAACACAIAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Reactive\Observer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexAtom" Collapsed="true">
+    <Position X="18.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Regex\RegexAtom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexAtomAny" Collapsed="true">
+    <Position X="15.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAEgAAAAAAACAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Regex\RegexAtom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexAtomCharacter" Collapsed="true">
+    <Position X="17.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAAAAAAAAAIAAAAAgAAAACAA=</HashCode>
+      <FileName>Regex\RegexAtom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexAtomExpression" Collapsed="true">
+    <Position X="19.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAAAAAAAAAIAQAAAgAAAAAAA=</HashCode>
+      <FileName>Regex\RegexAtom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexAtomSet" Collapsed="true">
+    <Position X="22" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAABAAEgAAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Regex\RegexAtom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexCharacter" Collapsed="true">
+    <Position X="24.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAAAAAAAAAIAAAgAgAAAAAAA=</HashCode>
+      <FileName>Regex\RegexCharacter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexCharacterClass" Collapsed="true">
+    <Position X="26.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Regex\RegexCharacterClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexCharacterClassAlteration" Collapsed="true">
+    <Position X="26.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAEAAAAAEgAAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Regex\RegexCharacterClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexCharacterClassCharacter" Collapsed="true">
+    <Position X="4" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAAAAAAAAAIAAAgAgAAAAAAA=</HashCode>
+      <FileName>Regex\RegexCharacterClassCharacter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexCharacterUnitRange" Collapsed="true">
+    <Position X="6.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAgAAEgAAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Regex\RegexCharacterRange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexCharacterRange" Collapsed="true">
+    <Position X="6.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAQAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Regex\RegexCharacterRange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexCompiler" Collapsed="true">
+    <Position X="60.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAABAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Regex\RegexCompiler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexDefinition" Collapsed="true">
+    <Position X="8.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASAACAAAAAAAAAEgAAAAAAAAAAAAIAQAAAgAAAIAAA=</HashCode>
+      <FileName>Regex\RegexDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexExpression" Collapsed="true">
+    <Position X="10.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Regex\RegexExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexExpressionTerm" Collapsed="true">
+    <Position X="10.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAAAAAAAAAIAAEAAgAAAAAAA=</HashCode>
+      <FileName>Regex\RegexExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexExpressionAlteration" Collapsed="true">
+    <Position X="10.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAAAAAAAAAIAQAAAgAAAAAAA=</HashCode>
+      <FileName>Regex\RegexExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexFactor" Collapsed="true">
+    <Position X="13" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAAQAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Regex\RegexFactor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexFactorIterator" Collapsed="true">
+    <Position X="13" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Regex\RegexFactor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexGrammar" Collapsed="true">
+    <Position X="2.75" Y="28" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAAGBAQEQABAAAAAAEAAQAAAAAIAAYEAAABAAACAA=</HashCode>
+      <FileName>Regex\RegexGrammar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexNode" Collapsed="true">
+    <Position X="15.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Regex\RegexNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexParser" Collapsed="true">
+    <Position X="62.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Regex\RegexParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexSet" Collapsed="true">
+    <Position X="28.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAEAAAAAEgAAAAAAAAAAAAIAAAAAkAAAAAAA=</HashCode>
+      <FileName>Regex\RegexSet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexTerm" Collapsed="true">
+    <Position X="1.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACBAAAAAAAAEgAAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Regex\RegexTerm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexTermFactor" Collapsed="true">
+    <Position X="1.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAEgAAAAAAAAAAAAIAAEAAgAAAAAAA=</HashCode>
+      <FileName>Regex\RegexTerm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.RegexVisitor" Collapsed="true">
+    <Position X="0.5" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAYABAYEAAIAAAAAAQAQAAACAAIAEAEAAAA=</HashCode>
+      <FileName>Regex\RegexVisitor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Regex.ThompsonConstructionAlgorithm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="53.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAABAABAAEAADAAAAAIAAAQCAAABAAAQEgAAAQAASIA=</HashCode>
+      <FileName>Regex\ThompsonConstructionAlgorithm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Runtime.DeterministicParseEngine" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="52" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AYRAAAkAAAIABQAQAAMAACAAAIACAAIgCAQAAAAEEAA=</HashCode>
+      <FileName>Runtime\DeterministicParseEngine.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Runtime.MarpaParseEngine" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="50.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQIAAAkAAAYAhYAAAANAACABRAASAAYgAAABCAAAEJA=</HashCode>
+      <FileName>Runtime\MarpaParseEngine.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Runtime.ParseEngine" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="52" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAYAAAkAIACQlQIIAgMBECQBIKwCoBJYAKAEAABCEBg=</HashCode>
+      <FileName>Runtime\ParseEngine.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Runtime.ParseEngineLexeme" Collapsed="true">
+    <Position X="22.5" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAEAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Runtime\ParseEngineLexeme.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Runtime.ParseEngineLexemeFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="53.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAGAAAAAAAAAAAAI=</HashCode>
+      <FileName>Runtime\ParseEngineLexemeFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Runtime.ParseEngineOptions" Collapsed="true">
+    <Position X="55.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Runtime\ParseEngineOptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Runtime.ParseRunner" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="57.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQEAJAhJhBBEiTAgICFIBAAwkIARAAgAGAgAAGPBCKI=</HashCode>
+      <FileName>Runtime\ParseRunner.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Runtime.ParseRunnerOptions" Collapsed="true">
+    <Position X="59" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Runtime\ParseRunnerOptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Tokens.ErrorToken" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="53.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAUCAAEAAAAABAQoAAEAAAAAAAAAAAAAAJACAgAAAgA=</HashCode>
+      <FileName>Tokens\ErrorToken.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Tokens.LexemeBase&lt;TLexerRule&gt;" Collapsed="true">
+    <Position X="19" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAUCAAEAAAAABAQoAAAAAAAAAAEAAAAAAJACAgAAAgA=</HashCode>
+      <FileName>Tokens\LexemeBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Tokens.LexemeFactoryRegistry" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="60.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAhAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tokens\LexemeFactoryRegistry.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Tokens.StringLiteralLexeme" Collapsed="true">
+    <Position X="18" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAEAAAAABAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tokens\StringLiteralLexeme.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Tokens.StringLiteralLexemeFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="59" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAGAAAAAAAAAAAAI=</HashCode>
+      <FileName>Tokens\StringLiteralLexemeFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Tokens.TerminalLexeme" Collapsed="true">
+    <Position X="20.25" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAEAAAAABAAAAAAAAAAAAEAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Tokens\TerminalLexeme.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Tokens.TerminalLexemeFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="50.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAGAAAAAAAAAAAAI=</HashCode>
+      <FileName>Tokens\TerminalLexemeFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Tokens.Token" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="55.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAogAAAAAAAAAAAAIAAABAiAgAAAgA=</HashCode>
+      <FileName>Tokens\Token.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Tree.InternalTreeNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="57.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAQACAAAAAACAAUAAIEAABAAAAAAAAAAAAABAwACAA=</HashCode>
+      <FileName>Tree\InternalTreeNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Tree.ParseTreeEnumerable" Collapsed="true">
+    <Position X="60.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAEAAAAAACAAAA=</HashCode>
+      <FileName>Tree\ParseTreeEnumerable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Tree.ParseTreeEnumerator" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="62.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAACAABAAAAACAAABAAAAAAAAAoAAAAAAACAA=</HashCode>
+      <FileName>Tree\ParseTreeEnumerator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Tree.TokenTreeNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="57.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAACAAAAAAAAAEAAIAAAAAAAAAAAAgAAAAAAgBAAA=</HashCode>
+      <FileName>Tree\TokenTreeNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Analyzer.Tree.TreeNodeVisitorBase" Collapsed="true">
+    <Position X="1.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tree\TreeNodeVisitorBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Library.Analyzer.Utilities.HashCode" Collapsed="true">
+    <Position X="52" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAQAAAAAAAAAAAAAQAAAAABAAAAAAAA=</HashCode>
+      <FileName>Utilities\HashCode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Utilities.HashCodeEqualityComparer&lt;T&gt;" Collapsed="true">
+    <Position X="53.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utilities\HashCodeEqualityComparer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Utilities.ObjectPool&lt;T&gt;" Collapsed="true">
+    <Position X="60.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAEAAAAAAAAEAAAAAAAAAAAAAAAAAACAAAAAAI=</HashCode>
+      <FileName>Utilities\ObjectPool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Utilities.ObjectPoolExtensions" Collapsed="true">
+    <Position X="62.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Utilities\ObjectPoolExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Analyzer.Utilities.SharedPools" Collapsed="true">
+    <Position X="52" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utilities\SharedPools.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Library.Analyzer.Grammars.Interval" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="50.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAFAAABAAAAwEkAIAAAAAIAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\Interval.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Struct>
+  <Interface Name="Library.Analyzer.Automata.IDfaLexerRule" Collapsed="true">
+    <Position X="18.75" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Automata\IDfaLexerRule.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Automata.IDfaState" Collapsed="true">
+    <Position X="53.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAIAAAAACAAAAAA=</HashCode>
+      <FileName>Automata\IDfaState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Automata.IDfaTransition" Collapsed="true">
+    <Position X="55.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Automata\IDfaTransition.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Automata.INfa" Collapsed="true">
+    <Position X="55.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAQAARAA=</HashCode>
+      <FileName>Automata\INfa.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Automata.INfaState" Collapsed="true">
+    <Position X="57.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Automata\INfaState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Automata.INfaToDfa" Collapsed="true">
+    <Position X="59" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Automata\INfaToDfa.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Automata.INfaTransition" Collapsed="true">
+    <Position X="60.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Automata\INfaTransition.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Captures.ICapture&lt;T&gt;" Collapsed="true">
+    <Position X="52" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAUCAAAQAQAAAAAAAAAAAAAAACAgAA=</HashCode>
+      <FileName>Captures\ICapture.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Charts.IChart" Collapsed="true">
+    <Position X="5.5" Y="27.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Charts\IChart.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Charts.IEarleySet" Collapsed="true">
+    <Position X="59" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEFAAAAAAAAAAAAAAAMAgAAAAAAAAAAAAAAACAIAAAA=</HashCode>
+      <FileName>Charts\IEarleySet.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Charts.INormalState" Collapsed="true">
+    <Position X="26.5" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Charts\INormalState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Charts.IReadOnlyChart" Collapsed="true">
+    <Position X="5.5" Y="26.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Charts\IReadOnlyChart.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Charts.IRelativeState" Collapsed="true">
+    <Position X="59" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAgAA=</HashCode>
+      <FileName>Charts\IRelativeState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Charts.IState" Collapsed="true">
+    <Position X="27.75" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAEAiAAAA=</HashCode>
+      <FileName>Charts\IState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Charts.IStateFactory" Collapsed="true">
+    <Position X="60.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Charts\IStateFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Charts.ITransitionState" Collapsed="true">
+    <Position X="28.75" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAIAAAAAAAAAAQAAAAAAAAAAAAAABAAEAAAAAAAA=</HashCode>
+      <FileName>Charts\ITransitionState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Collections.IQueue&lt;T&gt;" Collapsed="true">
+    <Position X="55.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Collections\IQueue.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Forest.IAndForestNode" Collapsed="true">
+    <Position X="50.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forest\IAndForestNode.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Forest.IForestDisambiguationAlgorithm" Collapsed="true">
+    <Position X="60.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forest\IForestDisambiguationAlgorithm.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Forest.IForestNode" Collapsed="true">
+    <Position X="16" Y="20.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Forest\IForestNode.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Forest.IForestNodeReference" Collapsed="true">
+    <Position X="62.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Forest\IForestNodeReference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Forest.IForestNodeVisitable" Collapsed="true">
+    <Position X="16" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forest\IForestNodeVisitable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Forest.IForestNodeVisitor" Collapsed="true">
+    <Position X="64.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forest\IForestNodeVisitor.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Forest.IIntermediateForestNode" Collapsed="true">
+    <Position X="12.75" Y="23.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Forest\IIntermediateForestNode.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Forest.IInternalForestNode" Collapsed="true">
+    <Position X="13.75" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Forest\IInternalForestNode.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Forest.ISymbolForestNode" Collapsed="true">
+    <Position X="15" Y="23.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Forest\ISymbolForestNode.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Forest.ITerminalForestNode" Collapsed="true">
+    <Position X="17.25" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Forest\ITerminalForestNode.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Forest.ITokenForestNode" Collapsed="true">
+    <Position X="19.5" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Forest\ITokenForestNode.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Grammars.IDottedRule" Collapsed="true">
+    <Position X="57.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAEAAAgAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\IDottedRule.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Grammars.IDottedRuleRegistry" Collapsed="true">
+    <Position X="16.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\IDottedRuleRegistry.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Grammars.IGrammar" Collapsed="true">
+    <Position X="50.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAEAAiABAAAAAgABAAAACAAAAAAAAkAAAAAAICA=</HashCode>
+      <FileName>Grammars\IGrammar.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Grammars.IGrammarLexerRule" Collapsed="true">
+    <Position X="21" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\IGrammarLexerRule.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Grammars.IGrouping" Collapsed="true">
+    <Position X="14.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\IGrouping.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Grammars.ILexerRule" Collapsed="true">
+    <Position X="20" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAACAAAAAAAAAAAgA=</HashCode>
+      <FileName>Grammars\ILexerRule.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Grammars.INonTerminal" Collapsed="true">
+    <Position X="25.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Grammars\INonTerminal.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Grammars.IOptional" Collapsed="true">
+    <Position X="27.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\IOptional.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Grammars.IProduction" Collapsed="true">
+    <Position X="53.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAACA=</HashCode>
+      <FileName>Grammars\IProduction.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Grammars.IReadOnlyDottedRuleRegistry" Collapsed="true">
+    <Position X="16.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\IReadOnlyDottedRuleRegistry.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Grammars.IRepetition" Collapsed="true">
+    <Position X="30" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\IRepetition.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Grammars.IStringLiteralLexerRule" Collapsed="true">
+    <Position X="23.25" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\IStringLiteralLexerRule.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Grammars.ISymbol" Collapsed="true">
+    <Position X="23.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\ISymbol.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Grammars.ITerminal" Collapsed="true">
+    <Position X="32.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\ITerminal.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Grammars.ITerminalLexerRule" Collapsed="true">
+    <Position X="16.5" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grammars\ITerminalLexerRule.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.PDL.IPdlProductionNamingStrategy" Collapsed="true">
+    <Position X="52" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PDL\IPdlProductionNamingStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Regex.IRegexToNfa" Collapsed="true">
+    <Position X="57.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Regex\IRegexToNfa.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Runtime.IParseEngine" Collapsed="true">
+    <Position X="62.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAkAAAAABQAAAAIAAAAAAAACAAIAAAAAAAAAEAA=</HashCode>
+      <FileName>Runtime\IParseEngine.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Runtime.IParseRunner" Collapsed="true">
+    <Position X="64.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAATAgAABAAAAgEAAAAAAAAAAAAABBAAA=</HashCode>
+      <FileName>Runtime\IParseRunner.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Tokens.ILexeme" Collapsed="true">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAQCAAEAAAAABAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tokens\ILexeme.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Tokens.ILexemeFactory" Collapsed="true">
+    <Position X="52" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAI=</HashCode>
+      <FileName>Tokens\ILexemeFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Tokens.ILexemeFactoryRegistry" Collapsed="true">
+    <Position X="53.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tokens\ILexemeFactoryRegistry.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Tokens.IToken" Collapsed="true">
+    <Position X="5.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAABACAgAAAgA=</HashCode>
+      <FileName>Tokens\IToken.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Tokens.ITrivia" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAABAAAAAAAgA=</HashCode>
+      <FileName>Tokens\ITrivia.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Tree.IInternalTreeNode" Collapsed="true">
+    <Position X="17.5" Y="24.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Tree\IInternalTreeNode.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Tree.IParseTreeEnumerator" Collapsed="true">
+    <Position X="50.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tree\IParseTreeEnumerator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Tree.ITokenTreeNode" Collapsed="true">
+    <Position X="19.75" Y="24.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Tree\ITokenTreeNode.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Tree.ITreeNode" Collapsed="true">
+    <Position X="18.75" Y="23.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAACAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Tree\ITreeNode.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Analyzer.Tree.ITreeNodeVisitor" Collapsed="true">
+    <Position X="62.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tree\ITreeNodeVisitor.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Library.Analyzer.Automata.NfaTransitionType" Collapsed="true">
+    <Position X="52" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Automata\NfaTransitionType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Library.Analyzer.Builders.SymbolModelType" Collapsed="true">
+    <Position X="62.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAACAAAAAAABAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Builders\SymbolModelType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Library.Analyzer.Charts.StateType" Collapsed="true">
+    <Position X="60.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Charts\StateType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Library.Analyzer.Forest.ForestNodeType" Collapsed="true">
+    <Position X="50.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAABCAQ=</HashCode>
+      <FileName>Forest\ForestNodeType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Library.Analyzer.Grammars.SymbolType" Collapsed="true">
+    <Position X="64.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAoAAAAAABAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Grammars\SymbolType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Library.Analyzer.PDL.PdlNodeType" Collapsed="true">
+    <Position X="53.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EgYoAEAABAAAAGAAGAAAAAAAAAABAABQCBEAAEQAihI=</HashCode>
+      <FileName>PDL\PdlNodeType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Library.Analyzer.Regex.RegexIterator" Collapsed="true">
+    <Position X="57.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAASAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Regex\RegexIterator.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Library.Analyzer.Regex.RegexNodeType" Collapsed="true">
+    <Position X="59" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAABkAQABAAQAABgACAAAAAQAQMAgDgAAg=</HashCode>
+      <FileName>Regex\RegexNodeType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Library.Analyzer.Runtime.ReadStatus" Collapsed="true">
+    <Position X="55.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAgAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Runtime\ReadStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Library.Analyzer.Tree.TreeNodeType" Collapsed="true">
+    <Position X="50.25" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Tree\TreeNodeType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

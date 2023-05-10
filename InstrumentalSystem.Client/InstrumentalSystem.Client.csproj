@@ -1,0 +1,92 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>View\Images\logo\logo256.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="View\Images\buttons\compileIcon.png" />
+    <None Remove="View\Images\buttons\globalFilesIcon.png" />
+    <None Remove="View\Images\buttons\localFilesIcon.png" />
+    <None Remove="View\Images\buttons\redoIcon.png" />
+    <None Remove="View\Images\buttons\saveAllIcon.png" />
+    <None Remove="View\Images\buttons\saveIcon.png" />
+    <None Remove="View\Images\buttons\settingsIcon.png" />
+    <None Remove="View\Images\buttons\undoIcon.png" />
+    <None Remove="View\Images\logo\logo256.ico" />
+    <None Remove="View\Images\modals\moduleCreationIcon.png" />
+    <None Remove="View\Images\modals\projectCreationIcon.png" />
+    <None Remove="View\Images\modals\userIcon.png" />
+    <None Remove="View\Images\modules\inputModuleIcon.png" />
+    <None Remove="View\Images\modules\logicModuleIcon.png" />
+    <None Remove="View\Images\modules\masterModuleIcon.png" />
+    <None Remove="View\Images\modules\moduleIcon.png" />
+    <None Remove="View\Images\modules\outputModuleIcon.png" />
+    <None Remove="View\Images\modules\projectIcon.png" />
+    <None Remove="View\Images\projectsIcon.png" />
+    <None Remove="View\Images\roles\roleEditorIcon.png" />
+    <None Remove="View\Images\roles\roleOwnerIcon.png" />
+    <None Remove="View\Images\roles\roleViewerIcon.png" />
+    <None Remove="View\Styles\NewFile1.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="View\Images\logo\logo256.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="View\Images\logo\logo256.ico" />
+    <Resource Include="View\Images\modals\moduleCreationIcon.png" />
+    <Resource Include="View\Images\modals\projectCreationIcon.png" />
+    <Resource Include="View\Images\modals\userIcon.png" />
+    <Resource Include="View\Images\modules\masterModuleIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Library.Analyzer\Library.Analyzer.csproj" />
+    <ProjectReference Include="..\Library.General\Library.General.csproj" />
+    <ProjectReference Include="..\Library.InterfaceConnection\Library.InterfaceConnection.csproj" />
+    <ProjectReference Include="..\Library.IOSystem\Library.IOSystem.csproj" />
+    <ProjectReference Include="..\Library.NextLevelGenerator\Library.NextLevelGenerator.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="View\Images\buttons\compileIcon.png" />
+    <Resource Include="View\Images\buttons\globalFilesIcon.png" />
+    <Resource Include="View\Images\buttons\localFilesIcon.png" />
+    <Resource Include="View\Images\buttons\redoIcon.png" />
+    <Resource Include="View\Images\buttons\saveAllIcon.png" />
+    <Resource Include="View\Images\buttons\saveIcon.png" />
+    <Resource Include="View\Images\buttons\settingsIcon.png" />
+    <Resource Include="View\Images\buttons\undoIcon.png" />
+    <Resource Include="View\Images\modules\inputModuleIcon.png" />
+    <Resource Include="View\Images\modules\logicModuleIcon.png" />
+    <Resource Include="View\Images\modules\moduleIcon.png" />
+    <Resource Include="View\Images\modules\outputModuleIcon.png" />
+    <Resource Include="View\Images\modules\projectIcon.png" />
+    <Resource Include="View\Images\projectsIcon.png" />
+    <Resource Include="View\Images\roles\roleEditorIcon.png" />
+    <Resource Include="View\Images\roles\roleOwnerIcon.png" />
+    <Resource Include="View\Images\roles\roleViewerIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Logic\Entrance\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.21.2" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.47.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.47.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+	
+
+
+</Project>

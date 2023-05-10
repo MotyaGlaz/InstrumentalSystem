@@ -1,0 +1,46 @@
+﻿<Page x:Class="InstrumentalSystem.Client.View.Pages.ModuleCreation.SortDefineValuePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:InstrumentalSystem.Client.View.Pages.ModuleCreation"
+      mc:Ignorable="d" 
+      HorizontalAlignment="Stretch"
+      VerticalAlignment="Stretch"
+      d:DesignHeight="650" d:DesignWidth="500"
+      Title="SortDefineValuePage">
+
+    <Grid Margin="20">
+        <DockPanel LastChildFill="False">
+            <Label Content="Уточните значение сорта:" DockPanel.Dock="Top" Foreground="{StaticResource black 1}"
+                   HorizontalAlignment="Left" FontSize="20"/>
+            <Label Content="Сорт t: K u M" x:Name="Task" DockPanel.Dock="Top" Foreground="{StaticResource black 1}"
+                   HorizontalAlignment="Left" FontSize="20"/>
+            <Border Background="{StaticResource black 5}" Margin="0 5 0 0" DockPanel.Dock="Top"
+                    BorderBrush="{StaticResource black 4}"
+                    BorderThickness="1" Height="35">
+                <ComboBox Name="TypesComboBox" BorderThickness="0" Foreground="{StaticResource black 1}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Token.Capture}" Foreground="{StaticResource black 1}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                    <!--<ComboBox.ItemContainerStyle>
+                        <Style TargetType="ComboBoxItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ComboBoxItem">
+                                        <Border Background="{StaticResource black 5}">
+                                            <Label Content="{Binding Token.Capture}" Foreground="{StaticResource black 1}"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ComboBox.ItemContainerStyle>-->
+                </ComboBox>
+            </Border>
+
+        </DockPanel>
+    </Grid>
+</Page>
