@@ -59,8 +59,8 @@
                             <TextBlock Text="{Binding ElementName=CodeEditor, Path=(textboxproperties:AttachedProperties.BindableLineCount)}"
                                        FontFamily="Courier New" Background="{StaticResource main 5}" Margin="5 0 0 0" FontSize="18" 
                                        Foreground="{StaticResource black 2}"/>
-                            <TextBox x:Name="CodeEditor"  textboxproperties:AttachedProperties.HasBindableLineCount="True" 
-                                     Margin="10 0 0 0" Foreground="{StaticResource black 1}" TextChanged="CodeEditor_TextChanged" 
+                            <TextBox x:Name="CodeEditor"  textboxproperties:AttachedProperties.HasBindableLineCount="True"
+                                     Margin="10 0 0 0" Foreground="{StaticResource black 1}" TextChanged="CodeEditor_TextChanged"
                                      AcceptsTab="True" AcceptsReturn="True" Style="{StaticResource Local_TextBox}" FontFamily="Courier New" FontSize="18" />
                         </DockPanel>
                     </ScrollViewer>
@@ -166,7 +166,8 @@
                                     <MenuItem Header="_С сервера" />
                                     <MenuItem Header="_С компьютера" />
                                 </MenuItem>
-                                <MenuItem Header="_Импортировать модуль"/>
+                                <MenuItem Header="_Импортировать модуль" x:Name="ImportModuleButton"
+                                          Click="ImportModuleButton_Click"/>
                                 <MenuItem Header="_Пользователи проекта"/>
                                 <MenuItem Header="_Экспорт"/>
                             </MenuItem>

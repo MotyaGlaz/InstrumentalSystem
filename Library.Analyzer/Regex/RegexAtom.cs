@@ -161,7 +161,7 @@ namespace Library.Analyzer.Regex
 
         public override string ToString()
         {
-            return Set.ToString();            
+            return Set.ToString();
         }
     }
 }

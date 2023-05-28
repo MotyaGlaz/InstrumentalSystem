@@ -44,7 +44,7 @@ namespace InstrumentalSystem.Client.View
                 "\\View\\Images\\roles\\roleOwnerIcon.png"
                 ));
             GlobalProjects.ItemsSource = _serverProjects;
-            UserButton.IsEnabled = false;
+            UserButton.IsEnabled = true;
         }
 
         public void RefreshProjectList()

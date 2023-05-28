@@ -1,4 +1,5 @@
-﻿using InstrumentalSystem.Client.Logic.Config;
+﻿using System;
+using InstrumentalSystem.Client.Logic.Config;
 using InstrumentalSystem.Client.View.Additional;
 using InstrumentalSystem.Client.View.Modal;
 using Library.Analyzer.Forest;
@@ -27,6 +28,7 @@ namespace InstrumentalSystem.Client.View
         private IInternalForestNode? _root = default(IInternalForestNode);
         private Project? _project = default(Project);
         private IModuleNameTable _nameTable;
+        private LogicModule? _selectedModule;
 
         public Editor(string path)
         {
@@ -95,7 +97,7 @@ namespace InstrumentalSystem.Client.View
                 log.Visit((SymbolForestNode)_root);
                 _nameTable = log._nameTable;
 
-                //Console.AppendText(log._nameTable.ToString());
+                //Разобраться с Console.AppendText(log._nameTable.ToString() + "\n");
                 Console.AppendText("Успешная компиляция");
             }
             
@@ -110,13 +112,14 @@ namespace InstrumentalSystem.Client.View
         {
             if (e.NewValue is LogicModule module)
             {
-                if (CodeEditor.IsEnabled == true)
+                if (CodeEditor.IsEnabled)
                     if(e.OldValue is LogicModule oldModule)
                         oldModule.SetContent(CodeEditor.Text);
                 CodeEditor.Clear();
                 CodeEditor.AppendText(module.Content);
                 SelectedModuleNameLabel.Content = module.Name;
                 CodeEditor.IsEnabled = true;
+                _selectedModule = module;
             }
         }
 
@@ -146,10 +149,12 @@ namespace InstrumentalSystem.Client.View
         private void OpenProjectButton_Click(object sender, RoutedEventArgs e)
         {
             var filePath = string.Empty;
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.RestoreDirectory = true;
-            openFileDialog.Title = "Выбор проекта";
-            openFileDialog.Filter = "Master files (*.master)|*.master";
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                RestoreDirectory = true,
+                Title = "Выбор проекта",
+                Filter = "Master files (*.master)|*.master"
+            };
             if (openFileDialog.ShowDialog() == true)
             {
                 filePath = openFileDialog.FileName;
@@ -158,22 +163,61 @@ namespace InstrumentalSystem.Client.View
 
         private void SaveModuleButton_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog saveFileDialog = new OpenFileDialog();
-            saveFileDialog.Title = "Сохранение модуля";
-            saveFileDialog.RestoreDirectory = true;
-            saveFileDialog.Filter = "";
-            saveFileDialog.CheckFileExists = false;
-            saveFileDialog.CheckPathExists = false;
-            if (saveFileDialog.ShowDialog() == true)
+            if (_selectedModule == null)
             {
-                var path = saveFileDialog.FileName;
+                MessageBox.Show("Не выбран модуль для сохранения");
+                return;
             }
-
+            
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                RestoreDirectory = true,
+                Title = "Сохранение модуля",
+                Filter = "Master file (*.master)|*.master"
+            };
+            saveFileDialog.ShowDialog();
+            if (saveFileDialog.FileName != "")
+            {
+                try
+                {
+                    var saveLoader = new LogicModuleSaveLoader();
+                    saveLoader.Save(saveFileDialog.FileName, _selectedModule);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Ошибка при сохранение модуля. " + ex.Message);
+                }
+            }
         }
 
         private void SaveProjectButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void ImportModuleButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                RestoreDirectory = true,
+                Title = "Импорт модуля",
+                Filter = "Master file (*.master)|*.master"
+            };
+            openFileDialog.ShowDialog();
+            if (openFileDialog.FileName != "")
+            {
+                try
+                {
+                    var saveLoader = new LogicModuleSaveLoader();
+                    LogicModule logicModule = saveLoader.Load(openFileDialog.FileName);
+                    //Выбор для загрузочного модуля namespace
+                    ClientConfig.Project.Add("12345", logicModule);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Ошибка при импортировании модуля. " + ex.Message);
+                }
+            }
         }
     }
 }
