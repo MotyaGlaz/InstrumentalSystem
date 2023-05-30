@@ -19,8 +19,8 @@ namespace Library.General.NameTable
 
         private int _hashCode;
 
-        public BaseNameElement(NameElementType nameElementType, List<PrefixCouple> prefixs, string id, List<ITokenForestNode> value)
-
+        public BaseNameElement(NameElementType nameElementType, List<PrefixCouple> prefixs, string id, 
+            List<ITokenForestNode> value)
         {
             NameElementType = nameElementType;
             ID = id;

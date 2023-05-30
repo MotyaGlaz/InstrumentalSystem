@@ -76,7 +76,8 @@ namespace InstrumentalSystem.Client.View.Modal
                     _moduleNamespace.GetLevel($"Уровень {_parent.GetLevel() - 1}").AddContent(
                         $"{_sorts.ToString()}" +
                         $"End;");
-                    ClientConfig.Project.Add(_moduleNamespace.Name, _moduleNamespace.GetLevel($"Уровень {_parent.GetLevel() - 1}"));
+                    ClientConfig.Project.Add(_moduleNamespace.Name.Replace(" ", "_"), 
+                        _moduleNamespace.GetLevel($"Уровень {_parent.GetLevel() - 1}"));
                 }
                 else
                 {
@@ -137,14 +138,14 @@ namespace InstrumentalSystem.Client.View.Modal
                     }
                     else
                     {
-                        _moduleNamespace = new LogicModuleNamespace(namePage.NameTextBox.Text);
+                        _moduleNamespace = new LogicModuleNamespace(namePage.NameTextBox.Text.Replace(" ", "_"));
                         _moduleNamespace.AddLevel(new LogicModule($"Уровень {namePage.LevelTextBox.Text}"));
                         #pragma warning disable CS8602
                         _moduleNamespace.GetLevel($"Уровень {namePage.LevelTextBox.Text}").SetContent(
-                            $"Module {namePage.NameTextBox.Text}: {namePage.LevelTextBox.Text};\n" +
+                            $"Module {namePage.NameTextBox.Text.Replace(" ", "_")}: {namePage.LevelTextBox.Text};\n" +
                             $"Begin\n" +
                             $"\n" +
-                            $"End;\n");
+                            $"End;");
                         #pragma warning restore CS8602
                     }
                 }

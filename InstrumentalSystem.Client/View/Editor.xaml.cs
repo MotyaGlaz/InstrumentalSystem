@@ -92,15 +92,13 @@ namespace InstrumentalSystem.Client.View
             if (Console.Document.Blocks.Count > 0)
                 return;
             var log = new NameSearchForestNodeVisitor(new TextBoxWriter(Console));
-            if (!(_root is null) )
-            {
-                log.Visit((SymbolForestNode)_root);
-                _nameTable = log._nameTable;
-
-                //Разобраться с Console.AppendText(log._nameTable.ToString() + "\n");
-                Console.AppendText("Успешная компиляция");
-            }
             
+            if (_root is null) 
+                return;
+            log.Visit((SymbolForestNode)_root);
+            _nameTable = log._nameTable;
+            // Разобраться с 103 строчкой Console.AppendText(log._nameTable.ToString() + "\n");
+            Console.AppendText("Успешная компиляция");
         }
 
         private void CodeEditor_TextChanged(object sender, TextChangedEventArgs e)
@@ -209,9 +207,8 @@ namespace InstrumentalSystem.Client.View
                 try
                 {
                     var saveLoader = new LogicModuleSaveLoader();
-                    LogicModule logicModule = saveLoader.Load(openFileDialog.FileName);
-                    //Выбор для загрузочного модуля namespace
-                    ClientConfig.Project.Add("12345", logicModule);
+                    LogicModuleNamespace logicModuleNamespace = saveLoader.Load(openFileDialog.FileName);
+                    ClientConfig.Project.Add(logicModuleNamespace);
                 }
                 catch(Exception ex)
                 {
