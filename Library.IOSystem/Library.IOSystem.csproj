@@ -1,13 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Library.General\Library.General.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PresentationFramework" Version="4.6.0" />
   </ItemGroup>
 
 </Project>

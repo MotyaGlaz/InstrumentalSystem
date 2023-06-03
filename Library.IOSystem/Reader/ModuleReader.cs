@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,6 @@ namespace Library.IOSystem.Reader
             Path = path;
         }
 
-        public string ReadAll() => File.ReadAllText(Path);
-        
+        public string ReadAll() => File.ReadAllText(Path);    
     }
 }
