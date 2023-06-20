@@ -57,7 +57,7 @@ namespace InstrumentalSystem.Client.View
         private void UserButton_Click(object sender, RoutedEventArgs e)
         {
 
-            ContentGrid.Children.Add(new AuthenticationModal(this));
+            //ContentGrid.Children.Add(new AuthenticationModal(this));
 
         }
 

@@ -22,6 +22,18 @@ namespace InstrumentalSystem.Client.View.Pages.Authenticate
     public partial class AuthenticationPage : Page
     {
         private AuthenticationModal _parent;
+
+        //Добавил автореализуемые свойства, чтобы удобно забирать данные со страницы авторизации, введенные пользователем
+        public string Username
+        {
+            get { return usernameTextBox.Text; }
+        }
+
+        public string Password
+        {
+            get { return passwordBox.Password; }
+        }
+
         public AuthenticationPage(AuthenticationModal parent)
         {
             InitializeComponent();
@@ -34,6 +46,6 @@ namespace InstrumentalSystem.Client.View.Pages.Authenticate
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
             _parent.AuthenticationFrame.Content = new RegistrationPage(_parent);
-        }        
+        }
     }
 }

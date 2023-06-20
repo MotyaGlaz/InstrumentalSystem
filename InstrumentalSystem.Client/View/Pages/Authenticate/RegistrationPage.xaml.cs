@@ -22,6 +22,33 @@ namespace InstrumentalSystem.Client.View.Pages.Authenticate
     public partial class RegistrationPage : Page
     {
         private AuthenticationModal _parent;
+
+        //Добавлены автореализуемые свойства, чтобы со страницы забирать данные, введенные пользователем
+        public string UserName
+        {
+            get { return usernameTextBox.Text; }
+        }
+
+        public string UserSurname
+        {
+            get { return usersurnameTextBox.Text; }
+        }
+
+        public string UserPatronymic
+        {
+            get { return userpatronymicTextBox.Text; }
+        }
+
+        public string UserLogin
+        {
+            get { return userloginTextBox.Text; }
+        }
+
+        public string UserPassword
+        {
+            get { return userpasswordTextBox.Text; }
+        }
+
         public RegistrationPage(AuthenticationModal parent)
         {
             InitializeComponent();
@@ -30,6 +57,5 @@ namespace InstrumentalSystem.Client.View.Pages.Authenticate
             _parent.HeaderLabel.Content = "Создание учетной записи";
             _parent.BackButton.IsEnabled = true;
         }
-
     }
 }

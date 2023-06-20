@@ -30,8 +30,8 @@
                                HorizontalAlignment="Left" FontSize="20"/>
                     <Border Background="{StaticResource black 5}" Margin="0 5 0 0" DockPanel.Dock="Top"
                                 BorderBrush="{StaticResource black 4}" BorderThickness="1" Height="25">
-                        <TextBox AcceptsReturn="False" BorderThickness="0" Foreground="{StaticResource black 1}"
-                                     Background="Transparent" FontSize="15" VerticalContentAlignment="Bottom"/>
+                        <TextBox x:Name="usernameTextBox" AcceptsReturn="False" BorderThickness="0" Foreground="{StaticResource black 1}"
+                                 Background="Transparent" FontSize="15" VerticalContentAlignment="Bottom"/>
                     </Border>
 
 
@@ -42,8 +42,8 @@
                                HorizontalAlignment="Left" FontSize="20"/>
                     <Border Background="{StaticResource black 5}" Margin="0 5 0 0" DockPanel.Dock="Top"
                                 BorderBrush="{StaticResource black 4}" BorderThickness="1" Height="25">
-                        <TextBox AcceptsReturn="False" BorderThickness="0" Foreground="{StaticResource black 1}"
-                                     Background="Transparent" FontSize="15" VerticalContentAlignment="Bottom"/>
+                        <TextBox x:Name="usersurnameTextBox" AcceptsReturn="False" BorderThickness="0" Foreground="{StaticResource black 1}"
+                                 Background="Transparent" FontSize="15" VerticalContentAlignment="Bottom"/>
                     </Border>
 
                 </DockPanel>
@@ -58,8 +58,8 @@
                                HorizontalAlignment="Left" FontSize="20"/>
             <Border Background="{StaticResource black 5}" Margin="0 5 0 0" DockPanel.Dock="Top"
                                 BorderBrush="{StaticResource black 4}" BorderThickness="1" Height="25">
-                <TextBox AcceptsReturn="False" BorderThickness="0" Foreground="{StaticResource black 1}"
-                                     Background="Transparent" FontSize="15" VerticalContentAlignment="Bottom"/>
+                <TextBox x:Name="userpatronymicTextBox" AcceptsReturn="False" BorderThickness="0" Foreground="{StaticResource black 1}"
+                         Background="Transparent" FontSize="15" VerticalContentAlignment="Bottom"/>
             </Border>
 
 
@@ -75,8 +75,8 @@
                                HorizontalAlignment="Left" FontSize="20"/>
                     <Border Background="{StaticResource black 5}" Margin="0 5 0 0" DockPanel.Dock="Top"
                                 BorderBrush="{StaticResource black 4}" BorderThickness="1" Height="25">
-                        <TextBox AcceptsReturn="False" BorderThickness="0" Foreground="{StaticResource black 1}"
-                                     Background="Transparent" FontSize="15" VerticalContentAlignment="Bottom"/>
+                        <TextBox x:Name="userloginTextBox" AcceptsReturn="False" BorderThickness="0" Foreground="{StaticResource black 1}"
+                                 Background="Transparent" FontSize="15" VerticalContentAlignment="Bottom"/>
                     </Border>
 
 
@@ -87,8 +87,8 @@
                                HorizontalAlignment="Left" FontSize="20"/>
                     <Border Background="{StaticResource black 5}" Margin="0 5 0 0" DockPanel.Dock="Top"
                                 BorderBrush="{StaticResource black 4}" BorderThickness="1" Height="25">
-                        <TextBox AcceptsReturn="False" BorderThickness="0" Foreground="{StaticResource black 1}"
-                                     Background="Transparent" FontSize="15" VerticalContentAlignment="Bottom"/>
+                        <TextBox x:Name="userpasswordTextBox" AcceptsReturn="False" BorderThickness="0" Foreground="{StaticResource black 1}"
+                                 Background="Transparent" FontSize="15" VerticalContentAlignment="Bottom"/>
                     </Border>
 
                 </DockPanel>
