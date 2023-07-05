@@ -1,18 +1,5 @@
 ﻿using InstrumentalSystem.Client.View.Modals;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace InstrumentalSystem.Client.View.Pages.Authenticate
 {
@@ -22,8 +9,7 @@ namespace InstrumentalSystem.Client.View.Pages.Authenticate
     public partial class RegistrationPage : Page
     {
         private AuthenticationModal _parent;
-
-        //Добавлены автореализуемые свойства, чтобы со страницы забирать данные, введенные пользователем
+        
         public string UserName
         {
             get { return usernameTextBox.Text; }
@@ -47,6 +33,12 @@ namespace InstrumentalSystem.Client.View.Pages.Authenticate
         public string UserPassword
         {
             get { return userpasswordTextBox.Text; }
+        }
+
+        //Добавил свойство для организации
+        public string UserOrganization
+        {
+            get { return namesTextBox.Text; }
         }
 
         public RegistrationPage(AuthenticationModal parent)

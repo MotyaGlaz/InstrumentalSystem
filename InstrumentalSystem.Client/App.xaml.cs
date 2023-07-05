@@ -19,7 +19,7 @@ namespace InstrumentalSystem.Client
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            WindowManager.CurrentWindow = new Authorization();
+            CurrentWindowEditor.CurrentWindow = new Authorization();
         }
     }
 }

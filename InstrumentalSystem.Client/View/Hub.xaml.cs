@@ -1,8 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using InstrumentalSystem.Client.Modals;
 using InstrumentalSystem.Client.View.Modals;
 using Library.General.Project;
 using Library.IOSystem.Reader;
+using Project = InstrumentalSystem.Client.Modals.Project;
 
 namespace InstrumentalSystem.Client.View
 {
@@ -11,72 +16,113 @@ namespace InstrumentalSystem.Client.View
     /// </summary>
     public partial class Hub : Window
     {
-        private List<ProjectInfo> _projects;
-        private List<ProjectInfo> _serverProjects;
-        public Hub()
+        private List<Project> _openProjects;
+        private List<Project> _closedProjects;
+        private int _userId;
+        
+        public Hub(int userId)
         {
             InitializeComponent();
-            _projects = ProjectReader.ReadProjectsInfo();
-            LocalProjects.ItemsSource = _projects;
-            _serverProjects = new List<ProjectInfo>();
-            _serverProjects.Add(new ProjectInfo(
-                "Проект 1",
-                "rabbid",
-                "Последние изменения: 01.07.2022",
-                "\\View\\Images\\roles\\roleOwnerIcon.png"
-                ));
-            _serverProjects.Add(new ProjectInfo(
-                "Тестовый Совместный Проект",
-                "wrap",
-                "Последние изменения: 02.07.2022",
-                "\\View\\Images\\roles\\roleEditorIcon.png"
-                ));
-            _serverProjects.Add(new ProjectInfo(
-                "Проверка Прав",
-                "wrap2",
-                "Последние изменения: 29.06.2022",
-                "\\View\\Images\\roles\\roleViewerIcon.png"
-                ));
-            _serverProjects.Add(new ProjectInfo(
-                "Калькулятор 1",
-                "rabbid",
-                "Последние изменения: 02.07.2022",
-                "\\View\\Images\\roles\\roleOwnerIcon.png"
-                ));
-            GlobalProjects.ItemsSource = _serverProjects;
+            _userId = userId;
+            
+            _openProjects = ReadOpenProjectsInfo(_userId);
+            LocalProjects.ItemsSource = _openProjects;
+            
+            LoadClosedProjects();
+
             UserButton.IsEnabled = true;
+        }
+
+        private void LoadClosedProjects()
+        {
+            var user = Database.Instance.GetUserById(_userId);
+
+            if (user.Role == "специалист")
+            {
+                ClosedProjectsTab.Visibility = Visibility.Visible;
+
+                _closedProjects = ReadClosedProjectsInfo(_userId);
+                ClosedProjects.ItemsSource = _closedProjects;
+            }
+            else
+            {
+                ClosedProjectsTab.Visibility = Visibility.Collapsed;
+            }
         }
 
         public void RefreshProjectList()
         {
-            _projects = ProjectReader.ReadProjectsInfo();
-            LocalProjects.ItemsSource = _projects;
+            _openProjects = ReadOpenProjectsInfo(_userId);
+            LocalProjects.ItemsSource = _openProjects;
             LocalProjects.Items.Refresh();
+            
+            _closedProjects = ReadClosedProjectsInfo(_userId);
+            ClosedProjects.ItemsSource = _closedProjects;
+            ClosedProjects.Items.Refresh();
         }
-
-        private void UserButton_Click(object sender, RoutedEventArgs e)
+        
+        public List<Project> ReadOpenProjectsInfo(int userId)
         {
+            Database database = Database.Instance;
+            
+            var projects = database.GetProjectsForUser(userId, "open");
 
-            //ContentGrid.Children.Add(new AuthenticationModal(this));
+            return projects;
+        }
+        
+        public List<Project> ReadClosedProjectsInfo(int userId)
+        {
+            Database database = Database.Instance;
+            
+            var projects = database.GetProjectsForUser(userId, "closed");
 
+            return projects;
+        }
+        
+        //Добавил метод для разлогина
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentWindowEditor.CurrentWindow = new Authorization();
         }
 
         private void CreateProjectButton_Click(object sender, RoutedEventArgs e)
         {
-            ContentGrid.Children.Add(new ProjectCreationModal(this));
+            bool isOpenProjectsTab = (myTabControl.SelectedItem == OpenProjectsTab);
+            
+            var projectCreationWindow = new ProjectCreationWindow(_userId, isOpenProjectsTab);
+
+            projectCreationWindow.ProjectCreated += ProjectCreationWindow_ProjectCreated;
+
+            projectCreationWindow.ShowDialog();
         }
 
         private void LocalProjects_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             if (LocalProjects.SelectedIndex == -1)
                 return;
-            ContentGrid.Children.Add(new LocalProjectInfoModal(_projects[LocalProjects.SelectedIndex]));
             
+            Project selectedProject = (Project)LocalProjects.SelectedItem;
+            //ContentGrid.Children.Add(new LocalProjectInfoModal(selectedProject));
         }
 
         private void GlobalProjects_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             ContentGrid.Children.Add(new GlobalProjectInfoModal());
+        }
+
+        //Добавил новый метод
+        private void OpenButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            Project project = button.DataContext as Project;
+            
+            ProjectEditWindow projectEditWindow = new ProjectEditWindow(project, _userId);
+            projectEditWindow.ShowDialog();
+        }
+
+        private void ProjectCreationWindow_ProjectCreated(object sender, EventArgs e)
+        {
+            RefreshProjectList();
         }
     }
 }

@@ -36,7 +36,7 @@ namespace InstrumentalSystem.Client.View.Modals
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Visibility = Visibility.Collapsed;
+            Visibility = Visibility.Collapsed;
         }
 
         private void CreationButton_Click(object sender, RoutedEventArgs e)
@@ -45,7 +45,7 @@ namespace InstrumentalSystem.Client.View.Modals
             ProjectWriter writer = new ProjectWriter(PathTextBox.Text);
             writer.WriteProject(ClientConfig.Project);
             _parent.RefreshProjectList();
-            this.Visibility = Visibility.Collapsed;
+            Visibility = Visibility.Collapsed;
         }
 
         private void SetPathButton_Click(object sender, RoutedEventArgs e)

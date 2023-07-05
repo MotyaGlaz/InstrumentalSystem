@@ -3,7 +3,7 @@
 namespace InstrumentalSystem.Client
 {
     //Класс создан для того, чтобы контролировать какая сейчас страница должна отображаться пользователю
-    public class WindowManager
+    public class CurrentWindowEditor
     {
         private static Window _currentWindow;
 

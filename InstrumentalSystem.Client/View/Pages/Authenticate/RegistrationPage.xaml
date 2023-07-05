@@ -100,7 +100,7 @@
                    HorizontalAlignment="Left" FontSize="20"/>
             <Border Background="{StaticResource black 5}" MinWidth="100" Margin="0 5 0 0" BorderBrush="{StaticResource black 4}" BorderThickness="1">
                 <ScrollViewer Background="Transparent">
-                    <TextBox AcceptsReturn="True" BorderThickness="0" Background="Transparent" x:Name="NamesTextBox" Foreground="{StaticResource black 1}"/>
+                    <TextBox AcceptsReturn="True" BorderThickness="0" Background="Transparent" x:Name="namesTextBox" Foreground="{StaticResource black 1}"/>
                 </ScrollViewer>
             </Border>
 
