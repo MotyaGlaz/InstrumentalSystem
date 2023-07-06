@@ -22,23 +22,20 @@ namespace InstrumentalSystem.Client.View.Modals
     /// </summary>
     public partial class AuthenticationModal : UserControl
     {
-        private Authorization _parent;
-        //Добавил поле, в котором хранится ссылка на БД, чтобы каждый раз не обращаться к классу БД
         private Database _database;
 
         public AuthenticationModal(Authorization parent)
         {
             InitializeComponent();
             _database = Database.Instance;
-            _parent = parent;
             AuthenticationFrame.Content = new AuthenticationPage(this);
         }
-        
+
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Visibility = Visibility.Collapsed;
+            Visibility = Visibility.Collapsed;
         }
-        
+
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
             if (AuthenticationFrame.Content is RegistrationPage)
@@ -49,12 +46,12 @@ namespace InstrumentalSystem.Client.View.Modals
 
             Authorize();
         }
-        
+
         private void Authorize()
         {
             string login = ((AuthenticationPage)AuthenticationFrame.Content).Username;
             string password = ((AuthenticationPage)AuthenticationFrame.Content).Password;
-            
+
             if (string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Поля не могут быть пустыми",
@@ -84,10 +81,10 @@ namespace InstrumentalSystem.Client.View.Modals
                     MessageBoxImage.Information);
 
                 //Добавил связь страницы Hub с авторизованным пользователем
-                CurrentWindowEditor.CurrentWindow = new Hub(_database.GetUserIdByLogin(login));
+                CurrentWindowEditor.CurrentWindow = new Hub(_database.GetUserById(_database.GetUserIdByLogin(login)));
             }
         }
-        
+
         private void Register()
         {
             string login = ((RegistrationPage)AuthenticationFrame.Content).UserLogin;
@@ -96,10 +93,10 @@ namespace InstrumentalSystem.Client.View.Modals
             string username = ((RegistrationPage)AuthenticationFrame.Content).UserName;
             string usersurname = ((RegistrationPage)AuthenticationFrame.Content).UserSurname;
             string userpatronymic = ((RegistrationPage)AuthenticationFrame.Content).UserPatronymic;
-            
+
             //Добавил переменную для орагниазции, чтобы потом создать пользователя в БД со значением отсюда
             string organization = ((RegistrationPage)AuthenticationFrame.Content).UserOrganization;
-            
+
             if (string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password) ||
                 string.IsNullOrWhiteSpace(username)
                 || string.IsNullOrWhiteSpace(usersurname) || string.IsNullOrWhiteSpace(userpatronymic))
@@ -110,7 +107,7 @@ namespace InstrumentalSystem.Client.View.Modals
                     MessageBoxImage.Warning);
                 return;
             }
-            
+
             if (!IsValidEmail(login))
             {
                 MessageBox.Show("Неверный формат поля логина, проверьте и повторите еще раз",
@@ -119,13 +116,13 @@ namespace InstrumentalSystem.Client.View.Modals
                     MessageBoxImage.Warning);
                 return;
             }
-            
+
             using (var transaction = _database.BeginTransaction())
             {
                 try
                 {
                     int accountId = _database.CreateAccount(login, password, transaction);
-                    
+
                     if (accountId == -1)
                     {
                         MessageBox.Show("Аккаунт с таким логином уже существует",
@@ -134,18 +131,24 @@ namespace InstrumentalSystem.Client.View.Modals
                             MessageBoxImage.Warning);
                         return;
                     }
-                    
+
                     var account = _database.GetAccount(accountId, transaction);
-                    
-                    _database.CreateUser($"{username} {usersurname} {userpatronymic}", account, organization, transaction);
-                    
+
+                    string role = "обычный пользователь";
+
+                    _database.CreateUser($"{username} {usersurname} {userpatronymic}",
+                        account,
+                        transaction,
+                        role,
+                        organization);
+
                     transaction.Commit();
 
                     MessageBox.Show("Вы успешно зарегистрированы в системе",
                         "Success",
                         MessageBoxButton.OK,
                         MessageBoxImage.Information);
-                    
+
                     AuthenticationFrame.Content = new AuthenticationPage(this);
                 }
                 catch (Exception e)
@@ -159,7 +162,7 @@ namespace InstrumentalSystem.Client.View.Modals
                 }
             }
         }
-        
+
         public static bool IsValidEmail(string email)
         {
             try

@@ -9,14 +9,12 @@ namespace InstrumentalSystem.Client.View
     {
         private Project _project;
         private int _userId;
-        private Database _database;
-        
-        public AddCommentWindow(Database database, Project project, int userId)
+
+        public AddCommentWindow(Project project, int userId)
         {
             InitializeComponent();
             _project = project;
             _userId = userId;
-            _database = database;
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)

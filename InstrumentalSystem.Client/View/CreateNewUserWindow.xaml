@@ -1,0 +1,26 @@
+﻿<Window x:Class="InstrumentalSystem.Client.View.CreateNewUserWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Height="450" Width="400"
+      Title="NewUserPage" >
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Имя" />
+            <TextBox Name="UserName" Width="200"/>
+
+            <Label Content="Фамилия" />
+            <TextBox Name="UserSurname" />
+
+            <Label Content="Отчество" />
+            <TextBox Name="UserPatronymic" />
+
+            <Label Content="Логин" />
+            <TextBox Name="UserLogin" />
+
+            <Label Content="Пароль" />
+            <PasswordBox Name="UserPassword" />
+
+            <Button Content="Добавить" Style="{StaticResource modal bt}" Click="RegisterButton_Click" Margin="0,20,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>

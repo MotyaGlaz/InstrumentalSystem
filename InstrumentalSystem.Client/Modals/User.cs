@@ -23,5 +23,20 @@
         {
             return Login;
         }
+        
+        public override bool Equals(object obj)
+        {
+            if (obj is User otherUser)
+            {
+                return Id == otherUser.Id;
+            }
+            
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id;
+        }
     }
 }

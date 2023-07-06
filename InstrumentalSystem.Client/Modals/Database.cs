@@ -42,7 +42,8 @@ namespace InstrumentalSystem.Client.Modals
             }
         }
 
-        public void CreateUser(string fullName, Account account, string organization, MySqlTransaction transaction)
+        public void CreateUser(string fullName, Account account, MySqlTransaction transaction,
+            string role, string organization = "")
         {
             var mySqlCommand = new MySqlCommand(
                 "INSERT INTO users (account_id, ФИО, role, organization) VALUES (@accountId, @fullName, @role, @organization)",
@@ -50,7 +51,7 @@ namespace InstrumentalSystem.Client.Modals
 
             mySqlCommand.Parameters.AddWithValue("@accountId", account.Id);
             mySqlCommand.Parameters.AddWithValue("@fullName", fullName);
-            mySqlCommand.Parameters.AddWithValue("@role", "обычный пользователь");
+            mySqlCommand.Parameters.AddWithValue("@role", role);
             mySqlCommand.Parameters.AddWithValue("@organization", organization);
             mySqlCommand.Transaction = transaction;
 
@@ -154,7 +155,6 @@ namespace InstrumentalSystem.Client.Modals
             return count > 0;
         }
 
-        //Добавил метод, получающий из БД проекты пользователя по id пользователя
         public List<Project> GetProjectsForUser(int userId, string status = null)
         {
             var projectData = new List<(int, string, string, DateTime, DateTime)>();
@@ -196,12 +196,12 @@ namespace InstrumentalSystem.Client.Modals
                         int commentId = reader.GetInt32("comment_id");
                         string comment = reader.GetString("comment");
                         int commentUserId = reader.GetInt32("user_id");
-                        
+
                         commentUserIdData[commentId] = commentUserId;
 
                         bool isNew = false;
                         var newComment = new CustomCollection(commentId, comment, commentUserId, isNew);
-                        
+
                         if (commentData.ContainsKey(id))
                         {
                             commentData[id].Add(newComment);
@@ -213,11 +213,11 @@ namespace InstrumentalSystem.Client.Modals
                     }
                 }
             }
-            
+
             foreach (var commentId in commentUserIdData.Keys)
             {
                 var user = GetUserById(commentUserIdData[commentId]);
-                
+
                 foreach (var comment in commentData.Values.SelectMany(list => list.Where(c => c.Key == commentId)))
                 {
                     comment.Username = user.Login;
@@ -246,8 +246,95 @@ namespace InstrumentalSystem.Client.Modals
             return projects;
         }
 
-        //Новый метод для получения пользователей, связанных с проектом
-        private List<User> GetUsersForProject(int projectId)
+        public List<Project> GetAllProjects(string status = null)
+        {
+            var projectData = new List<(int, string, string, DateTime, DateTime)>();
+            var commentData = new Dictionary<int, List<CustomCollection>>();
+            var commentUserIdData = new Dictionary<int, int>();
+
+            var mySqlCommand = new MySqlCommand(
+                "SELECT projects.id, projects.name, projects.status, projects.created_date, projects.last_modified_date, comments.id AS comment_id, comments.comment, comments.user_id " +
+                "FROM projects " +
+                "LEFT JOIN comments ON projects.id = comments.project_id" +
+                (status != null ? " WHERE projects.status = @status" : ""),
+                _connection);
+
+            if (status != null)
+            {
+                mySqlCommand.Parameters.AddWithValue("@status", status);
+            }
+
+            using (var reader = mySqlCommand.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32("id");
+                    string name = reader.GetString("name");
+                    string statusDB = reader.GetString("status");
+                    DateTime createdDate = reader.GetDateTime("created_date");
+                    DateTime lastModifiedDate = reader.GetDateTime("last_modified_date");
+
+                    if (!projectData.Any(p => p.Item1 == id))
+                    {
+                        projectData.Add((id, name, statusDB, createdDate, lastModifiedDate));
+                    }
+
+                    if (!reader.IsDBNull(reader.GetOrdinal("comment_id")))
+                    {
+                        int commentId = reader.GetInt32("comment_id");
+                        string comment = reader.GetString("comment");
+                        int commentUserId = reader.GetInt32("user_id");
+
+                        commentUserIdData[commentId] = commentUserId;
+
+                        bool isNew = false;
+                        var newComment = new CustomCollection(commentId, comment, commentUserId, isNew);
+
+                        if (commentData.ContainsKey(id))
+                        {
+                            commentData[id].Add(newComment);
+                        }
+                        else
+                        {
+                            commentData.Add(id, new List<CustomCollection> { newComment });
+                        }
+                    }
+                }
+            }
+
+            foreach (var commentId in commentUserIdData.Keys)
+            {
+                var user = GetUserById(commentUserIdData[commentId]);
+
+                foreach (var comment in commentData.Values.SelectMany(list => list.Where(c => c.Key == commentId)))
+                {
+                    comment.Username = user.Login;
+                }
+            }
+
+            var projects = new List<Project>();
+
+            foreach (var data in projectData)
+            {
+                var users = GetUsersForProject(data.Item1);
+                var comments = new ObservableCollection<CustomCollection>();
+
+                if (commentData.ContainsKey(data.Item1))
+                {
+                    foreach (var comment in commentData[data.Item1])
+                    {
+                        comments.Add(comment);
+                    }
+                }
+
+                var project = new Project(data.Item1, data.Item2, data.Item3, data.Item4, data.Item5, comments, users);
+                projects.Add(project);
+            }
+
+            return projects;
+        }
+
+        public List<User> GetUsersForProject(int projectId)
         {
             var users = new List<User>();
 
@@ -280,7 +367,6 @@ namespace InstrumentalSystem.Client.Modals
             return users;
         }
 
-        //Добавил метод для получения id пользователя в БД по логину
         public int GetUserIdByLogin(string login)
         {
             int userId = 0;
@@ -309,7 +395,6 @@ namespace InstrumentalSystem.Client.Modals
             return userId;
         }
 
-        //Добавли метод для добавления нового проекта в БД
         public void CreateProject(string projectName, List<User> users, string status)
         {
             // Create new project
@@ -335,7 +420,6 @@ namespace InstrumentalSystem.Client.Modals
             }
         }
 
-        //Добавил метод для получения пользователя по id
         public User GetUserById(int userId)
         {
             User user = null;
@@ -366,7 +450,6 @@ namespace InstrumentalSystem.Client.Modals
             return user;
         }
 
-        //Добавил метод для сохранения комментариев к проекту
         public void SaveComments(Project project)
         {
             if (!project.Comments.Any())
@@ -390,6 +473,207 @@ namespace InstrumentalSystem.Client.Modals
                     }
                 }
             }
+        }
+
+        public void DeleteUser(int userId)
+        {
+            using (var transaction = _connection.BeginTransaction())
+            {
+                try
+                {
+                    // Delete comments associated with the user
+                    var deleteCommentsCommand = new MySqlCommand(
+                        "DELETE FROM comments WHERE user_id = @userId",
+                        _connection);
+                    deleteCommentsCommand.Parameters.AddWithValue("@userId", userId);
+                    deleteCommentsCommand.Transaction = transaction;
+                    deleteCommentsCommand.ExecuteNonQuery();
+
+                    // Get accountId for the user
+                    var getAccountIdCommand = new MySqlCommand(
+                        "SELECT account_id FROM users WHERE UniqueID = @userId",
+                        _connection);
+                    getAccountIdCommand.Parameters.AddWithValue("@userId", userId);
+                    getAccountIdCommand.Transaction = transaction;
+
+                    var accountId = 0;
+
+                    using (var reader = getAccountIdCommand.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            accountId = reader.GetInt32("account_id");
+                        }
+                    }
+
+                    // Get list of projects where the user is the only participant
+                    var projectIdsCommand = new MySqlCommand(
+                        "SELECT project_id FROM user_projects_link " +
+                        "GROUP BY project_id " +
+                        "HAVING COUNT(user_id) = 1 AND MAX(user_id) = @userId",
+                        _connection);
+                    projectIdsCommand.Parameters.AddWithValue("@userId", userId);
+                    projectIdsCommand.Transaction = transaction;
+
+                    var projectIdList = new List<int>();
+
+                    using (var reader = projectIdsCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            projectIdList.Add(reader.GetInt32("project_id"));
+                        }
+                    }
+
+                    // Delete these projects from the user_projects_link table
+                    foreach (var projectId in projectIdList)
+                    {
+                        var deleteProjectLinkCommand = new MySqlCommand(
+                            "DELETE FROM user_projects_link WHERE project_id = @projectId",
+                            _connection);
+                        deleteProjectLinkCommand.Parameters.AddWithValue("@projectId", projectId);
+                        deleteProjectLinkCommand.Transaction = transaction;
+                        deleteProjectLinkCommand.ExecuteNonQuery();
+                    }
+
+                    // Delete these projects from the projects table
+                    foreach (var projectId in projectIdList)
+                    {
+                        var deleteProjectCommand = new MySqlCommand(
+                            "DELETE FROM projects WHERE id = @projectId",
+                            _connection);
+                        deleteProjectCommand.Parameters.AddWithValue("@projectId", projectId);
+                        deleteProjectCommand.Transaction = transaction;
+                        deleteProjectCommand.ExecuteNonQuery();
+                    }
+
+                    // Delete user from user_projects_link
+                    var deleteLinkCommand = new MySqlCommand(
+                        "DELETE FROM user_projects_link WHERE user_id = @userId",
+                        _connection);
+                    deleteLinkCommand.Parameters.AddWithValue("@userId", userId);
+                    deleteLinkCommand.Transaction = transaction;
+                    deleteLinkCommand.ExecuteNonQuery();
+
+                    // Delete user from users
+                    var deleteUserCommand = new MySqlCommand(
+                        "DELETE FROM users WHERE UniqueID = @userId",
+                        _connection);
+                    deleteUserCommand.Parameters.AddWithValue("@userId", userId);
+                    deleteUserCommand.Transaction = transaction;
+                    deleteUserCommand.ExecuteNonQuery();
+
+                    // Delete user from accounts
+                    if (accountId != 0)
+                    {
+                        var deleteAccountCommand = new MySqlCommand(
+                            "DELETE FROM accounts WHERE UniqueID = @accountId",
+                            _connection);
+                        deleteAccountCommand.Parameters.AddWithValue("@accountId", accountId);
+                        deleteAccountCommand.Transaction = transaction;
+                        deleteAccountCommand.ExecuteNonQuery();
+                    }
+
+                    // Commit transaction
+                    transaction.Commit();
+                }
+                catch
+                {
+                    // If anything goes wrong, roll back the transaction
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+        }
+
+        public void DeleteProject(Project project)
+        {
+            using (var transaction = _connection.BeginTransaction())
+            {
+                try
+                {
+                    // Delete comments associated with the project
+                    var deleteCommentsCommand = new MySqlCommand(
+                        "DELETE FROM comments WHERE project_id = @projectId",
+                        _connection);
+                    deleteCommentsCommand.Parameters.AddWithValue("@projectId", project.Id);
+                    deleteCommentsCommand.Transaction = transaction;
+                    deleteCommentsCommand.ExecuteNonQuery();
+
+                    // Delete records from user_projects_link table
+                    var deleteProjectLinkCommand = new MySqlCommand(
+                        "DELETE FROM user_projects_link WHERE project_id = @projectId",
+                        _connection);
+                    deleteProjectLinkCommand.Parameters.AddWithValue("@projectId", project.Id);
+                    deleteProjectLinkCommand.Transaction = transaction;
+                    deleteProjectLinkCommand.ExecuteNonQuery();
+
+                    // Delete project from projects
+                    var deleteProjectCommand = new MySqlCommand(
+                        "DELETE FROM projects WHERE id = @projectId",
+                        _connection);
+                    deleteProjectCommand.Parameters.AddWithValue("@projectId", project.Id);
+                    deleteProjectCommand.Transaction = transaction;
+                    deleteProjectCommand.ExecuteNonQuery();
+
+                    // Commit transaction
+                    transaction.Commit();
+                }
+                catch
+                {
+                    // If anything goes wrong, roll back the transaction
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+        }
+        
+        public void DeleteUserFromProject(int projectId, int userId)
+        {
+            using (var transaction = _connection.BeginTransaction())
+            {
+                try
+                {
+                    // Delete all comments from this user on the project
+                    var deleteCommentsCommand = new MySqlCommand(
+                        "DELETE FROM comments WHERE project_id = @projectId AND user_id = @userId",
+                        _connection);
+                    deleteCommentsCommand.Parameters.AddWithValue("@projectId", projectId);
+                    deleteCommentsCommand.Parameters.AddWithValue("@userId", userId);
+                    deleteCommentsCommand.Transaction = transaction;
+                    deleteCommentsCommand.ExecuteNonQuery();
+
+                    // Delete the link from UserProjectsLink
+                    var deleteUserProjectLinkCommand = new MySqlCommand(
+                        "DELETE FROM user_projects_link WHERE project_id = @projectId AND user_id = @userId",
+                        _connection);
+                    deleteUserProjectLinkCommand.Parameters.AddWithValue("@projectId", projectId);
+                    deleteUserProjectLinkCommand.Parameters.AddWithValue("@userId", userId);
+                    deleteUserProjectLinkCommand.Transaction = transaction;
+                    deleteUserProjectLinkCommand.ExecuteNonQuery();
+
+                    // Commit transaction
+                    transaction.Commit();
+                }
+                catch
+                {
+                    // If anything goes wrong, roll back the transaction
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+        }
+        
+        public void AddUserToProject(int projectId, int userId)
+        {
+            // Create a command to insert a new row into the user_projects_link table
+            var mySqlCommand = new MySqlCommand(
+                "INSERT INTO user_projects_link (user_id, project_id) VALUES (@user_id, @project_id)",
+                _connection);
+            mySqlCommand.Parameters.AddWithValue("@user_id", userId);
+            mySqlCommand.Parameters.AddWithValue("@project_id", projectId);
+
+            mySqlCommand.ExecuteNonQuery();
         }
 
         public MySqlTransaction BeginTransaction()

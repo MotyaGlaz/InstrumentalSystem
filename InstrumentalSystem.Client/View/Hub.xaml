@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InstrumentalSystem.Client.View"
         mc:Ignorable="d"
-        Title="Hub" Height="600" Width="1000"
-        MinHeight="600" MinWidth="800">
+        Title="Hub" Height="600" Width="1200"
+        MinHeight="600" MinWidth="800"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <Grid x:Name="ContentGrid">
         <Grid>
             <Grid.RowDefinitions>
@@ -16,7 +17,7 @@
 
             <!--Внутренности-->
             <Border Grid.Row="1" Background="{StaticResource main 5}">
-                <TabControl x:Name="myTabControl" Margin="20" Background="Transparent" BorderThickness="0" >
+                <TabControl x:Name="myTabControl" Margin="20" Background="Transparent" BorderThickness="0">
                     <TabControl.Resources>
                         <Style TargetType="TabItem">
                             <Setter Property="Template">
@@ -51,7 +52,8 @@
                     </TabControl.Resources>
 
                     <!--открытые проекты-->
-                    <TabItem FontSize="18" FontWeight="Bold" Foreground="{StaticResource black 1}" Name="OpenProjectsTab">
+                    <TabItem FontSize="18" FontWeight="Bold" Foreground="{StaticResource black 1}"
+                             Name="OpenProjectsTab">
                         <TabItem.Header>
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="{StaticResource local files icon}" />
@@ -64,7 +66,7 @@
                                       Background="White">  <!-- Set a Background color here -->
                                 <ListView.ItemContainerStyle>
                                     <Style TargetType="{x:Type ListViewItem}">
-                                        <Setter Property="Margin" Value="0,0,0,10"/>
+                                        <Setter Property="Margin" Value="0,0,0,10" />
                                         <Setter Property="MinHeight" Value="100" />  <!-- Adjust this -->
                                         <!-- Additional setters are omitted for brevity -->
                                         <Setter Property="Template">
@@ -85,18 +87,200 @@
                                                                        Foreground="Black"
                                                                        TextTrimming="CharacterEllipsis"
                                                                        MaxWidth="500"
-                                                                       HorizontalAlignment="Left"/>
+                                                                       HorizontalAlignment="Left" />
                                                             <!-- Set Foreground color here -->
                                                             <!-- Other UI elements are omitted for brevity -->
-                                                            <Button Content="Открыть проект" 
-                                                                    Style="{StaticResource modal bt}" 
-                                                                    Grid.RowSpan="4" 
-                                                                    Grid.Column="2" 
+                                                            <StackPanel Grid.RowSpan="4" Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Right">
+                                                                <Button Content="Открыть проект"
+                                                                        Style="{StaticResource modal bt}"
+                                                                        Click="OpenButton_Click"
+                                                                        DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListViewItem}}, Path=DataContext}"
+                                                                        Padding="10,5"
+                                                                        Margin="5"
+                                                                        MinWidth="300"
+                                                                        HorizontalAlignment="Right" />
+                                                                <Button Content="Удалить проект"
+                                                                        Click="DeleteButton_Click"
+                                                                        Padding="10,5"
+                                                                        Margin="5"
+                                                                        MinWidth="300"
+                                                                        VerticalAlignment="Bottom"
+                                                                        HorizontalAlignment="Right">
+                                                                    <Button.Style>
+                                                                        <Style TargetType="Button" BasedOn="{StaticResource modal bt}">
+                                                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                                                            <Style.Triggers>
+                                                                                <!-- Check the role of current user -->
+                                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Hub}}, Path=CurrentUser.Role}" Value="администратор">
+                                                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                                                </DataTrigger>
+                                                                            </Style.Triggers>
+                                                                        </Style>
+                                                                    </Button.Style>
+                                                                </Button>
+                                                            </StackPanel>
+                                                            <!-- Set Foreground color here -->
+                                                        </Grid>
+                                                    </Border>
+                                                    <!-- Triggers are omitted for brevity -->
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                            </ListView>
+                        </ScrollViewer>
+                    </TabItem>
+
+                    <!--Закрытые проекты-->
+                    <TabItem FontSize="18" FontWeight="Bold" Foreground="{StaticResource black 1}"
+                             Name="ClosedProjectsTab">
+                        <TabItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{StaticResource local files icon}" />
+                                <Label Content="ЗАКРЫТЫЕ ПРОЕКТЫ" Margin="5 0 0 0" />
+                            </StackPanel>
+                        </TabItem.Header>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <ListView Style="{StaticResource list view}" Margin="10 5" Name="ClosedProjects"
+                                      VerticalContentAlignment="Stretch" VerticalAlignment="Stretch"
+                                      Background="White">  <!-- Set a Background color here -->
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="{x:Type ListViewItem}">
+                                        <Setter Property="Margin" Value="0,0,0,10" />
+                                        <Setter Property="MinHeight" Value="100" />  <!-- Adjust this -->
+                                        <!-- Additional setters are omitted for brevity -->
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ListViewItem">
+                                                    <Border Background="{TemplateBinding Background}"
+                                                            BorderThickness="2"
+                                                            BorderBrush="#75b4c0"
+                                                            CornerRadius="5"
+                                                            Height="{TemplateBinding Height}"
+                                                            Width="{Binding ActualWidth, ElementName=ProjectWidth}">
+                                                        <Grid Margin="10">
+                                                            <TextBlock Text="{Binding Name}"
+                                                                       Grid.Row="0"
+                                                                       Grid.ColumnSpan="2"
+                                                                       FontWeight="Bold"
+                                                                       FontSize="18"
+                                                                       Foreground="Black"
+                                                                       TextTrimming="CharacterEllipsis"
+                                                                       MaxWidth="500"
+                                                                       HorizontalAlignment="Left" />
+                                                            <!-- Set Foreground color here -->
+                                                            <!-- Other UI elements are omitted for brevity -->
+                                                            <StackPanel Grid.RowSpan="4" Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Right">
+                                                            <Button Content="Открыть проект"
+                                                                    Style="{StaticResource modal bt}"
                                                                     Click="OpenButton_Click"
                                                                     DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListViewItem}}, Path=DataContext}"
-                                                                    Padding="10,5" 
-                                                                    Margin="5" 
-                                                                    HorizontalAlignment="Right"/>
+                                                                    Padding="10,5"
+                                                                    Margin="5"
+                                                                    MinWidth="300"
+                                                                    HorizontalAlignment="Right" />
+                                                            <Button Content="Удалить проект"
+                                                                    Click="DeleteButton_Click"
+                                                                    Padding="10,5"
+                                                                    Margin="5"
+                                                                    MinWidth="300"
+                                                                    VerticalAlignment="Bottom"
+                                                                    HorizontalAlignment="Right">
+                                                                <Button.Style>
+                                                                    <Style TargetType="Button" BasedOn="{StaticResource modal bt}">
+                                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                                        <Style.Triggers>
+                                                                            <!-- Check the role of current user -->
+                                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Hub}}, Path=CurrentUser.Role}" Value="администратор">
+                                                                                <Setter Property="Visibility" Value="Visible"/>
+                                                                            </DataTrigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </Button.Style>
+                                                            </Button>
+                                                            </StackPanel>
+                                                            <!-- Set Foreground color here -->
+                                                        </Grid>
+                                                    </Border>
+                                                    <!-- Triggers are omitted for brevity -->
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                            </ListView>
+                        </ScrollViewer>
+                    </TabItem>
+
+                    <!--Все проекты-->
+                    <TabItem FontSize="18" FontWeight="Bold" Foreground="{StaticResource black 1}"
+                             Name="AllProjectsTab">
+                        <TabItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{StaticResource local files icon}" />
+                                <Label Content="ВСЕ ПРОЕКТЫ" Margin="5 0 0 0" />
+                            </StackPanel>
+                        </TabItem.Header>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <ListView Style="{StaticResource list view}" Margin="10 5" Name="AllProjects"
+                                      VerticalContentAlignment="Stretch" VerticalAlignment="Stretch"
+                                      Background="White">  <!-- Set a Background color here -->
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="{x:Type ListViewItem}">
+                                        <Setter Property="Margin" Value="0,0,0,10" />
+                                        <Setter Property="MinHeight" Value="100" />  <!-- Adjust this -->
+                                        <!-- Additional setters are omitted for brevity -->
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ListViewItem">
+                                                    <Border Background="{TemplateBinding Background}"
+                                                            BorderThickness="2"
+                                                            BorderBrush="#75b4c0"
+                                                            CornerRadius="5"
+                                                            Height="{TemplateBinding Height}"
+                                                            Width="{Binding ActualWidth, ElementName=ProjectWidth}">
+                                                        <Grid Margin="10">
+                                                            <TextBlock Text="{Binding Name}"
+                                                                       Grid.Row="0"
+                                                                       Grid.ColumnSpan="2"
+                                                                       FontWeight="Bold"
+                                                                       FontSize="18"
+                                                                       Foreground="Black"
+                                                                       TextTrimming="CharacterEllipsis"
+                                                                       MaxWidth="500"
+                                                                       HorizontalAlignment="Left" />
+                                                            <!-- Set Foreground color here -->
+                                                            <!-- Other UI elements are omitted for brevity -->
+                                                            <StackPanel Grid.RowSpan="4" Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Right">
+                                                                <Button Content="Открыть проект"
+                                                                        Style="{StaticResource modal bt}"
+                                                                        Click="OpenButton_Click"
+                                                                        DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListViewItem}}, Path=DataContext}"
+                                                                        Padding="10,5"
+                                                                        Margin="5"
+                                                                        MinWidth="300"
+                                                                        HorizontalAlignment="Right" />
+                                                                <Button Content="Удалить проект"
+                                                                        Click="DeleteButton_Click"
+                                                                        Padding="10,5"
+                                                                        Margin="5"
+                                                                        MinWidth="300"
+                                                                        VerticalAlignment="Bottom"
+                                                                        HorizontalAlignment="Right">
+                                                                    <Button.Style>
+                                                                        <Style TargetType="Button" BasedOn="{StaticResource modal bt}">
+                                                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                                                            <Style.Triggers>
+                                                                                <!-- Check the role of current user -->
+                                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Hub}}, Path=CurrentUser.Role}" Value="администратор">
+                                                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                                                </DataTrigger>
+                                                                            </Style.Triggers>
+                                                                        </Style>
+                                                                    </Button.Style>
+                                                                </Button>
+                                                            </StackPanel>
                                                             <!-- Set Foreground color here -->
                                                         </Grid>
                                                     </Border>
@@ -110,64 +294,30 @@
                         </ScrollViewer>
                     </TabItem>
                     
-                    <!--Закрытые проекты-->
-                    <TabItem FontSize="18" FontWeight="Bold" Foreground="{StaticResource black 1}" Name="ClosedProjectsTab">
+                    <!--Все пользователи-->
+                    <TabItem FontSize="18" FontWeight="Bold" Foreground="{StaticResource black 1}" Name="UsersTab">
                         <TabItem.Header>
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="{StaticResource local files icon}" />
-                                <Label Content="ЗАКРЫТЫЕ ПРОЕКТЫ" Margin="5 0 0 0" />
+                                <Label Content="ВСЕ ПОЛЬЗОВАТЕЛИ" Margin="5 0 0 0" />
                             </StackPanel>
                         </TabItem.Header>
-                        <ScrollViewer VerticalScrollBarVisibility="Auto">
-                            <ListView Style="{StaticResource list view}" Margin="10 5" Name="ClosedProjects"
-                                      VerticalContentAlignment="Stretch" VerticalAlignment="Stretch"
-                                      Background="White">  <!-- Set a Background color here -->
-                                <ListView.ItemContainerStyle>
-                                    <Style TargetType="{x:Type ListViewItem}">
-                                        <Setter Property="Margin" Value="0,0,0,10"/>
-                                        <Setter Property="MinHeight" Value="100" />  <!-- Adjust this -->
-                                        <!-- Additional setters are omitted for brevity -->
-                                        <Setter Property="Template">
-                                            <Setter.Value>
-                                                <ControlTemplate TargetType="ListViewItem">
-                                                    <Border Background="{TemplateBinding Background}"
-                                                            BorderThickness="2"
-                                                            BorderBrush="#75b4c0"
-                                                            CornerRadius="5"
-                                                            Height="{TemplateBinding Height}"
-                                                            Width="{Binding ActualWidth, ElementName=ProjectWidth}">
-                                                        <Grid Margin="10">
-                                                            <TextBlock Text="{Binding Name}"
-                                                                       Grid.Row="0"
-                                                                       Grid.ColumnSpan="2"
-                                                                       FontWeight="Bold"
-                                                                       FontSize="18"
-                                                                       Foreground="Black"
-                                                                       TextTrimming="CharacterEllipsis"
-                                                                       MaxWidth="500"
-                                                                       HorizontalAlignment="Left"/>
-                                                            <!-- Set Foreground color here -->
-                                                            <!-- Other UI elements are omitted for brevity -->
-                                                            <Button Content="Открыть проект" 
-                                                                    Style="{StaticResource modal bt}" 
-                                                                    Grid.RowSpan="4" 
-                                                                    Grid.Column="2" 
-                                                                    Click="OpenButton_Click"
-                                                                    DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListViewItem}}, Path=DataContext}"
-                                                                    Padding="10,5" 
-                                                                    Margin="5" 
-                                                                    HorizontalAlignment="Right"/>
-                                                            <!-- Set Foreground color here -->
-                                                        </Grid>
-                                                    </Border>
-                                                    <!-- Triggers are omitted for brevity -->
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Style>
-                                </ListView.ItemContainerStyle>
-                            </ListView>
-                        </ScrollViewer>
+                        <ListView Name="UserList">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" />
+                                    <GridViewColumn Header="Login" DisplayMemberBinding="{Binding Login}" />
+                                    <GridViewColumn Header="Role" DisplayMemberBinding="{Binding Role}" />
+                                    <GridViewColumn Header="Delete">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Style="{StaticResource modal bt}" Content="Удалить" Click="DeleteUserButton_Click" />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
                     </TabItem>
                 </TabControl>
             </Border>
@@ -185,6 +335,8 @@
                     <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                         <Button Style="{StaticResource window bar bt}" Name="CreateProjectButton"
                                 Content="Создать новый проект" Click="CreateProjectButton_Click" />
+                        <Button Style="{StaticResource window bar bt}" Name="CreateUserButton"
+                                Content="Создать нового пользователя" Click="CreateUserButton_Click" />
                         <Button Style="{StaticResource window bar bt}" Name="UserButton" Click="ExitButton_Click">
                             <Label Background="Brown" Content="Выход" />
                         </Button>

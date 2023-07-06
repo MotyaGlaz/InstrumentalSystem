@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
-using System.Windows.Documents;
 using InstrumentalSystem.Client.Modals;
 using User = InstrumentalSystem.Client.Modals.User;
 
@@ -30,13 +29,11 @@ namespace InstrumentalSystem.Client.View
             
             if (isOpenProjectsTab)
             {
-                // For open projects: All users, except those with the "Administrator" role
                 allUsers = _database.GetAllUsers().Where(user => user.Id != _userId && user.Role != "администратор").ToList();
                 _status = "open";
             }
             else
             {
-                // For closed projects: Only users with the "Specialist" role
                 allUsers = _database.GetAllUsers().Where(user => user.Id != _userId && user.Role == "специалист").ToList();
                 _status = "closed";
             }
@@ -46,25 +43,21 @@ namespace InstrumentalSystem.Client.View
 
         private void submitProjectButton_Click(object sender, RoutedEventArgs e)
         {
-            // Get the input data
             string projectName = projectNameTextBox.Text;
 
             if (projectName.Trim().Equals(String.Empty) == false)
             {
-                // I assume usersListView is a listbox which can contain multiple selected items
                 var selectedUsers = ((List<UserViewModel>)usersListView.ItemsSource)
                     .Where(userVM => userVM.IsSelected)
                     .Select(userVM => userVM.User)
                     .ToList();
             
                 selectedUsers.Add(_database.GetUserById(_userId));
-
-                // Use the input data to create a new project in the database
+                
                 _database.CreateProject(projectName, selectedUsers, _status);
 
                 ProjectCreated?.Invoke(this, new EventArgs());
-            
-                // Close the window
+
                 Close();
             }
             else

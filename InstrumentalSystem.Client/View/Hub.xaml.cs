@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using InstrumentalSystem.Client.Modals;
-using InstrumentalSystem.Client.View.Modals;
-using Library.General.Project;
-using Library.IOSystem.Reader;
 using Project = InstrumentalSystem.Client.Modals.Project;
 
 namespace InstrumentalSystem.Client.View
@@ -18,19 +15,70 @@ namespace InstrumentalSystem.Client.View
     {
         private List<Project> _openProjects;
         private List<Project> _closedProjects;
-        private int _userId;
+        private List<Project> _allProjects;
         
-        public Hub(int userId)
+        private int _userId;
+        private Database _database;
+
+        private UserRole _userRole;
+        
+        public Hub(User user)
         {
             InitializeComponent();
-            _userId = userId;
-            
-            _openProjects = ReadOpenProjectsInfo(_userId);
-            LocalProjects.ItemsSource = _openProjects;
-            
-            LoadClosedProjects();
+            _userId = user.Id;
+            _database = Database.Instance;
+            CurrentUser = user;
 
-            UserButton.IsEnabled = true;
+            switch (user.Role)
+            {
+                case "администратор":
+                    _userRole = new AdministratorRole();
+                    LoadProjectsForAdministator();
+                    LoadUsers();
+                    break;
+                case "специалист":
+                    _userRole = new SpecialistRole();
+                    RefreshProjectList();
+                    break;
+                case "обычный пользователь":
+                    _userRole = new CommonRole();
+                    RefreshProjectList();
+                    break;
+                default:
+                    throw new ArgumentException($"Unknown user role: {user.Role}");
+            }
+
+            SetElementVisibility();
+            LoadClosedProjects();
+        }
+        
+        public User CurrentUser { get; private set; }
+
+        private void LoadUsers()
+        {
+            var users = _database.GetAllUsers().Where(user => user.Role != "администратор").ToList();
+
+            UserList.ItemsSource = users;
+        }
+
+        private void SetElementVisibility()
+        {
+            CreateProjectButton.Visibility = _userRole.CreateProjectButtonVisibility;
+            CreateUserButton.Visibility = _userRole.CreateUserButtonVisibility;
+            ClosedProjectsTab.Visibility = _userRole.ClosedProjectsTabVisibility;
+            AllProjectsTab.Visibility = _userRole.AllProjectsTabVisibility;
+            UsersTab.Visibility = _userRole.UsersTabVisibility;
+        }
+
+        private void LoadProjectsForAdministator()
+        {
+            _allProjects = _database.GetAllProjects();
+            _closedProjects = _allProjects.Where(project => project.Status == "closed").ToList();
+            _openProjects = _allProjects.Where(project => project.Status == "open").ToList();
+            
+            AllProjects.ItemsSource = _allProjects;
+            ClosedProjects.ItemsSource = _closedProjects;
+            LocalProjects.ItemsSource = _openProjects;
         }
 
         private void LoadClosedProjects()
@@ -39,14 +87,8 @@ namespace InstrumentalSystem.Client.View
 
             if (user.Role == "специалист")
             {
-                ClosedProjectsTab.Visibility = Visibility.Visible;
-
                 _closedProjects = ReadClosedProjectsInfo(_userId);
                 ClosedProjects.ItemsSource = _closedProjects;
-            }
-            else
-            {
-                ClosedProjectsTab.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -63,23 +105,18 @@ namespace InstrumentalSystem.Client.View
         
         public List<Project> ReadOpenProjectsInfo(int userId)
         {
-            Database database = Database.Instance;
-            
-            var projects = database.GetProjectsForUser(userId, "open");
+            var projects = _database.GetProjectsForUser(userId, "open");
 
             return projects;
         }
         
         public List<Project> ReadClosedProjectsInfo(int userId)
         {
-            Database database = Database.Instance;
-            
-            var projects = database.GetProjectsForUser(userId, "closed");
+            var projects = _database.GetProjectsForUser(userId, "closed");
 
             return projects;
         }
         
-        //Добавил метод для разлогина
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             CurrentWindowEditor.CurrentWindow = new Authorization();
@@ -95,34 +132,108 @@ namespace InstrumentalSystem.Client.View
 
             projectCreationWindow.ShowDialog();
         }
-
-        private void LocalProjects_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        
+        private void CreateUserButton_Click(object sender, RoutedEventArgs e)
         {
-            if (LocalProjects.SelectedIndex == -1)
-                return;
+            var newUserCreationPage = new CreateNewUserWindow();
             
-            Project selectedProject = (Project)LocalProjects.SelectedItem;
-            //ContentGrid.Children.Add(new LocalProjectInfoModal(selectedProject));
+            newUserCreationPage.UserAdded += LoadUsers;
+
+            newUserCreationPage.ShowDialog();
         }
 
-        private void GlobalProjects_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            ContentGrid.Children.Add(new GlobalProjectInfoModal());
-        }
-
-        //Добавил новый метод
         private void OpenButton_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
             Project project = button.DataContext as Project;
             
-            ProjectEditWindow projectEditWindow = new ProjectEditWindow(project, _userId);
-            projectEditWindow.ShowDialog();
+            if (CurrentUser.Role == "администратор")
+            {
+                // Create and open a new window with a list of users
+                UsersListWindow usersesListWindow = new UsersListWindow(project);
+
+                usersesListWindow.UserDeletedFromProject += LoadProjectsForAdministator;
+                
+                usersesListWindow.ShowDialog();
+                
+                usersesListWindow.UserDeletedFromProject -= LoadProjectsForAdministator;
+            }
+            else
+            {
+                // If the user is not an administrator, open the ProjectEditWindow as usual
+                ProjectEditWindow projectEditWindow = new ProjectEditWindow(project, _userId);
+                projectEditWindow.ShowDialog();
+            }
+        }
+        
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            Project project = button.DataContext as Project;
+            
+            var result = MessageBox.Show("Вы уверены, что хотите удалить проект?", "Confirm delete", MessageBoxButton.YesNo);
+            
+            if (result == MessageBoxResult.Yes)
+            {
+                _database.DeleteProject(project);
+                LoadProjectsForAdministator();
+            }
+        }
+        
+        private void DeleteUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            User user = button.DataContext as User;
+    
+            var result = MessageBox.Show("Вы уверены, что хотите удалить данного пользователя?", "Confirm delete", MessageBoxButton.YesNo);
+            
+            if (result == MessageBoxResult.Yes)
+            {
+                _database.DeleteUser(user.Id);
+                LoadUsers();
+                LoadProjectsForAdministator();
+            }
         }
 
         private void ProjectCreationWindow_ProjectCreated(object sender, EventArgs e)
         {
             RefreshProjectList();
         }
+    }
+    
+    public abstract class UserRole
+    {
+        public abstract Visibility CreateProjectButtonVisibility { get; }
+        public abstract Visibility CreateUserButtonVisibility { get; }
+        public abstract Visibility AllProjectsTabVisibility { get; }
+        public abstract Visibility ClosedProjectsTabVisibility { get; }
+        public abstract Visibility UsersTabVisibility { get; }
+    }
+
+    public class AdministratorRole : UserRole
+    {
+        public override Visibility CreateProjectButtonVisibility => Visibility.Collapsed;
+        public override Visibility CreateUserButtonVisibility => Visibility.Visible;
+        public override Visibility AllProjectsTabVisibility => Visibility.Visible;
+        public override Visibility ClosedProjectsTabVisibility => Visibility.Visible;
+        public override Visibility UsersTabVisibility => Visibility.Visible;
+    }
+
+    public class SpecialistRole : UserRole
+    {
+        public override Visibility CreateProjectButtonVisibility => Visibility.Visible;
+        public override Visibility CreateUserButtonVisibility => Visibility.Collapsed;
+        public override Visibility AllProjectsTabVisibility => Visibility.Collapsed;
+        public override Visibility ClosedProjectsTabVisibility => Visibility.Visible;
+        public override Visibility UsersTabVisibility => Visibility.Collapsed;
+    }
+    
+    public class CommonRole : UserRole
+    {
+        public override Visibility CreateProjectButtonVisibility => Visibility.Visible;
+        public override Visibility CreateUserButtonVisibility => Visibility.Collapsed;
+        public override Visibility AllProjectsTabVisibility => Visibility.Collapsed;
+        public override Visibility ClosedProjectsTabVisibility => Visibility.Collapsed;
+        public override Visibility UsersTabVisibility => Visibility.Collapsed;
     }
 }

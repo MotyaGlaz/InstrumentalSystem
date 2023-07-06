@@ -1,12 +1,13 @@
-﻿using System.ComponentModel;
-using System.Text;
-using System.Windows;
+﻿using System.Windows;
+using System.Windows.Controls;
 using InstrumentalSystem.Client.Modals;
 
 namespace InstrumentalSystem.Client.View
 {
     public partial class ProjectEditWindow : Window
     {
+        
+        
         private Project _project;
         private Database _database;
         private int _userId;
@@ -14,7 +15,7 @@ namespace InstrumentalSystem.Client.View
         public ProjectEditWindow(Project project, int userId)
         {
             InitializeComponent();
-            
+
             _project = project;
             _database = Database.Instance;
             _userId = userId;
@@ -24,21 +25,20 @@ namespace InstrumentalSystem.Client.View
 
         private void AddCommentButton_Click(object sender, RoutedEventArgs e)
         {
-            var addCommentWindow = new AddCommentWindow(_database, _project, _userId);
-            
+            var addCommentWindow = new AddCommentWindow(_project, _userId);
+
             addCommentWindow.ShowDialog();
         }
 
         private void EditProjectButton_Click(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             ClosingProjectEditWindow closingProjectEditWindow = new ClosingProjectEditWindow();
             bool? result = closingProjectEditWindow.ShowDialog();
-            
+
             if (result.HasValue && result.Value)
             {
                 _database.SaveComments(_project);
