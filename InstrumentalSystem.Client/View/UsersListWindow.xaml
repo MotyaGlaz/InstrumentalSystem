@@ -16,15 +16,15 @@
         <ListView x:Name="UsersListView" Grid.Row="0">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid Width="473">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Text="{Binding Login}" Margin="5" Grid.Column="0"/>
 
-                        <Button Content="Удалить из проекта" Click="RemoveUserButton_Click" Grid.Column="1">
+                        <Button Content="Удалить из проекта " Click="RemoveUserButton_Click" Grid.Column="1" HorizontalAlignment="Right">
                             <Button.Style>
                                 <Style TargetType="Button" BasedOn="{StaticResource modal bt}">
                                     <Style.Triggers>
