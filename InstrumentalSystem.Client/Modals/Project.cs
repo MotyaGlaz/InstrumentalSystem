@@ -15,6 +15,7 @@ namespace InstrumentalSystem.Client.Modals
         public string Status { get; private set; }
         public DateTime CreatedDate { get; private set; }
         public DateTime LastModifiedDate { get; private set; }
+        public string Path { get; private set; }
         public List<User> Users => new List<User>(_users);
 
         private List<User> _users;
@@ -23,7 +24,7 @@ namespace InstrumentalSystem.Client.Modals
 
         public Project(int id, string name, string status, DateTime createdDate, DateTime lastModifiedDate,
             ObservableCollection<CustomCollection> comments,
-            List<User> users)
+            List<User> users, string path)
         {
             Id = id;
             Name = name;
@@ -31,6 +32,7 @@ namespace InstrumentalSystem.Client.Modals
             CreatedDate = createdDate;
             LastModifiedDate = lastModifiedDate;
             _users = users;
+            Path = path;
 
             _comments = comments;
         }

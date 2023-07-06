@@ -32,6 +32,9 @@ namespace InstrumentalSystem.Client.View
 
         private void EditProjectButton_Click(object sender, RoutedEventArgs e)
         {
+            Editor editor = new Editor(_project.Path);
+            editor.Show();
+            this.Visibility = Visibility.Collapsed;
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

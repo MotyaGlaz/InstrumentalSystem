@@ -57,9 +57,9 @@ namespace InstrumentalSystem.Client.View.Modals
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
-            Editor editor = new Editor(_info.Path);
-            editor.Show();
-            this.Visibility = Visibility.Collapsed;
+            // Editor editor = new Editor(_info.Path);
+            // editor.Show();
+            // this.Visibility = Visibility.Collapsed;
         }
     }
 }

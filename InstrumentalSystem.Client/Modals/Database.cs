@@ -157,12 +157,13 @@ namespace InstrumentalSystem.Client.Modals
 
         public List<Project> GetProjectsForUser(int userId, string status = null)
         {
-            var projectData = new List<(int, string, string, DateTime, DateTime)>();
+            var projectData = new List<(int, string, string, DateTime, DateTime, string)>();
             var commentData = new Dictionary<int, List<CustomCollection>>();
             var commentUserIdData = new Dictionary<int, int>();
 
             var mySqlCommand = new MySqlCommand(
-                "SELECT projects.id, projects.name, projects.status, projects.created_date, projects.last_modified_date, comments.id AS comment_id, comments.comment, comments.user_id " +
+                "SELECT projects.id, projects.name, projects.status, projects.created_date, projects.last_modified_date, " +
+                "comments.id AS comment_id, comments.comment, comments.user_id, projects.path " +
                 "FROM projects " +
                 "INNER JOIN user_projects_link ON projects.id = user_projects_link.project_id " +
                 "LEFT JOIN comments ON projects.id = comments.project_id " +
@@ -185,10 +186,11 @@ namespace InstrumentalSystem.Client.Modals
                     string statusDB = reader.GetString("status");
                     DateTime createdDate = reader.GetDateTime("created_date");
                     DateTime lastModifiedDate = reader.GetDateTime("last_modified_date");
+                    string path = reader.GetString("path");
 
                     if (!projectData.Any(p => p.Item1 == id))
                     {
-                        projectData.Add((id, name, statusDB, createdDate, lastModifiedDate));
+                        projectData.Add((id, name, statusDB, createdDate, lastModifiedDate, path));
                     }
 
                     if (!reader.IsDBNull(reader.GetOrdinal("comment_id")))
@@ -239,7 +241,7 @@ namespace InstrumentalSystem.Client.Modals
                     }
                 }
 
-                var project = new Project(data.Item1, data.Item2, data.Item3, data.Item4, data.Item5, comments, users);
+                var project = new Project(data.Item1, data.Item2, data.Item3, data.Item4, data.Item5, comments, users, data.Item6);
                 projects.Add(project);
             }
 
@@ -248,12 +250,13 @@ namespace InstrumentalSystem.Client.Modals
 
         public List<Project> GetAllProjects(string status = null)
         {
-            var projectData = new List<(int, string, string, DateTime, DateTime)>();
+            var projectData = new List<(int, string, string, DateTime, DateTime, string)>();
             var commentData = new Dictionary<int, List<CustomCollection>>();
             var commentUserIdData = new Dictionary<int, int>();
 
             var mySqlCommand = new MySqlCommand(
-                "SELECT projects.id, projects.name, projects.status, projects.created_date, projects.last_modified_date, comments.id AS comment_id, comments.comment, comments.user_id " +
+                "SELECT projects.id, projects.name, projects.status, projects.created_date, projects.last_modified_date, " +
+                "comments.id AS comment_id, comments.comment, comments.user_id, projects.path " +
                 "FROM projects " +
                 "LEFT JOIN comments ON projects.id = comments.project_id" +
                 (status != null ? " WHERE projects.status = @status" : ""),
@@ -273,10 +276,11 @@ namespace InstrumentalSystem.Client.Modals
                     string statusDB = reader.GetString("status");
                     DateTime createdDate = reader.GetDateTime("created_date");
                     DateTime lastModifiedDate = reader.GetDateTime("last_modified_date");
+                    string path = reader.GetString("path");
 
                     if (!projectData.Any(p => p.Item1 == id))
                     {
-                        projectData.Add((id, name, statusDB, createdDate, lastModifiedDate));
+                        projectData.Add((id, name, statusDB, createdDate, lastModifiedDate, path));
                     }
 
                     if (!reader.IsDBNull(reader.GetOrdinal("comment_id")))
@@ -327,7 +331,7 @@ namespace InstrumentalSystem.Client.Modals
                     }
                 }
 
-                var project = new Project(data.Item1, data.Item2, data.Item3, data.Item4, data.Item5, comments, users);
+                var project = new Project(data.Item1, data.Item2, data.Item3, data.Item4, data.Item5, comments, users, data.Item6);
                 projects.Add(project);
             }
 
@@ -683,7 +687,8 @@ namespace InstrumentalSystem.Client.Modals
 
         private MySqlConnection GetConnection()
         {
-            string connectionLink = "server=127.0.0.1;user=root;database=userdb;password=Nikaree9898;";
+            // string connectionLink = "server=127.0.0.1;user=root;database=userdb;password=Nikaree9898;";
+            string connectionLink = "server=127.0.0.1;user=root;database=userdb;password=grow_147-olw+2815;";
             return new MySqlConnection(connectionLink);
         }
     }
